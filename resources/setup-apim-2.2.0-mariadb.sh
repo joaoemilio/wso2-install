@@ -7,7 +7,7 @@ RESOURCES_HOME="/opt/wso2/wso2-install/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
 WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/wso2am-2.2.0.1525177454672.zip"
-
+DB="mariadb"
 DB_MAX_ACTIVE=20
 DB_MIN_ACTIVE=5
 DB_MAX_IDLE=5
