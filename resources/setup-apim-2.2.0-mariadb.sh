@@ -17,33 +17,33 @@ MARIADB_JDBC_DRIVER_CLASS_NAME="org.mariadb.jdbc.Driver"
 CARBON_HOST="apim.minegames.com.br"
 CARBON_MGT_HOSTNAME="apim.minegames.com.br"
 
-CARBON_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2"
+CARBON_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2"
 CARBON_DB_USERNAME="wso2"
 CARBON_DB_PASSWORD="wso2123"
 CARBON_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
 
-WSO2UM_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2"
+WSO2UM_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2"
 WSO2UM_DB_USERNAME="wso2"
 WSO2UM_DB_PASSWORD="wso2123"
 WSO2UM_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
 
-WSO2GOV_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2"
+WSO2GOV_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2"
 WSO2GOV_DB_USERNAME="wso2"
 WSO2GOV_DB_PASSWORD="wso2123"
 WSO2GOV_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
 
-WSO2AM_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2"
+WSO2AM_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2"
 WSO2AM_DB_USERNAME="wso2"
 WSO2AM_DB_PASSWORD="wso2123"
 WSO2AM_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
 
-WSO2AM_STAT_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2stat"
+WSO2AM_STAT_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2stat"
 WSO2AM_STAT_DB_USERNAME="wso2stat"
 WSO2AM_STAT_DB_PASSWORD="wso2123"
 WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
 
 # MB_STORE ORACLE
-WSO2_MB_STORE_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2"
+WSO2_MB_STORE_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2"
 WSO2_MB_STORE_DB_USERNAME="wso2"
 WSO2_MB_STORE_DB_PASSWORD="wso2123"
 WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
@@ -55,7 +55,7 @@ WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
 #WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
 
 # METRICS ORACLE
-WSO2_METRICS_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:1521/wso2"
+WSO2_METRICS_DB_JDBC_URL="jdbc:mariadb://10.158.0.5:3306/wso2"
 WSO2_METRICS_DB_USERNAME="wso2"
 WSO2_METRICS_DB_PASSWORD="wso2123"
 WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME=$MARIADB_JDBC_DRIVER_CLASS_NAME
@@ -166,9 +166,10 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/c
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources.xml $CARBON_HOME/repository/conf/datasources/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
-cp $RESOURCES_HOME/oracle12c/ojdbc8.jar $CARBON_HOME/repository/components/lib/
-cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks 
-keytool -export -alias wso2carbon -keystore $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks -file $IS_AS_KM_HOSTNAME.cer
-keytool -import -alias $IS_AS_KM_HOSTNAME.wso2carbon -keystore $CARBON_HOME/repository/resources/security/client-truststore.jks -file $IS_AS_KM_HOSTNAME.cer
+cp $RESOURCES_HOME/mariadb/mariadb-java-client-2.2.3.jar $CARBON_HOME/repository/components/lib/
 
-#keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=identity.minegames.com.br, OU=br,O=minegames,L=BR,S=BR,C=SP" -storepass wso2carbon -keypass wso2carbon 
+#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks 
+#keytool -export -alias wso2carbon -keystore $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks -file $IS_AS_KM_HOSTNAME.cer
+#keytool -import -alias $IS_AS_KM_HOSTNAME.wso2carbon -keystore $CARBON_HOME/repository/resources/security/client-truststore.jks -file $IS_AS_KM_HOSTNAME.cer
+
+#keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,S=$SSL_S,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
