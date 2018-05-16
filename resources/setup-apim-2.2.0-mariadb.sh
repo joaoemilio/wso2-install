@@ -168,6 +168,14 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $C
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
 cp $RESOURCES_HOME/mariadb/mariadb-java-client-2.2.3.jar $CARBON_HOME/repository/components/lib/
 
+echo "atualizando scripts mysql-5.7"
+mv $CARBON_HOME/dbscripts/mysql.sql $CARBON_HOME/dbscripts/mysql-5.x.sql
+mv $CARBON_HOME/dbscripts/mysql-5.7.sql $CARBON_HOME/dbscripts/mysql.sql
+mv $CARBON_HOME/dbscripts/apimgt/mysql.sql $CARBON_HOME/dbscripts/apimgt/mysql-5.x.sql
+mv $CARBON_HOME/dbscripts/apimgt/mysql-5.7.sql $CARBON_HOME/dbscripts/apimgt/mysql.sql
+mv $CARBON_HOME/dbscripts/mysql.sql $CARBON_HOME/dbscripts/mysql-5.x.sql
+mv $CARBON_HOME/dbscripts/mysql-5.7.sql $CARBON_HOME/dbscripts/mysql.sql
+
 #cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks 
 #keytool -export -alias wso2carbon -keystore $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks -file $IS_AS_KM_HOSTNAME.cer
 #keytool -import -alias $IS_AS_KM_HOSTNAME.wso2carbon -keystore $CARBON_HOME/repository/resources/security/client-truststore.jks -file $IS_AS_KM_HOSTNAME.cer
