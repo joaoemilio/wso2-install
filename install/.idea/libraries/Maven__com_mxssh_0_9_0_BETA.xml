@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com:mxssh:0.9.0-BETA">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mxssh/0.9.0-BETA/mxssh-0.9.0-BETA.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mxssh/0.9.0-BETA/mxssh-0.9.0-BETA-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mxssh/0.9.0-BETA/mxssh-0.9.0-BETA-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,56 @@
+<datasources-configuration>
+
+    <providers>
+        <provider>org.wso2.carbon.ndatasource.rdbms.RDBMSDataSourceReader</provider>
+        <!--<provider>org.wso2.carbon.datasource.reader.hadoop.HBaseDataSourceReader</provider>-->
+        <!--<provider>org.wso2.carbon.datasource.reader.cassandra.CassandraDataSourceReader</provider>-->
+    </providers>
+
+    <datasources>
+
+        <datasource>
+            <name>WSO2_ANALYTICS_EVENT_STORE_DB</name>
+            <description>The datasource used for analytics record store</description>
+            <definition type="RDBMS">
+                <configuration>
+                    <url>{{WSO2AM_STAT_DB_JDBC_URL}}</url>
+                    <username>{{WSO2AM_STAT_DB_USERNAME}}</username>
+                    <password>{{WSO2AM_STAT_DB_PASSWORD}}</password>
+                    <driverClassName>{{WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME}}</driverClassName>
+                    <maxActive>{{DB_MAX_ACTIVE}}</maxActive>
+                    <maxWait>60000</maxWait>
+                    <validationQuery>SELECT 1</validationQuery>
+                    <defaultAutoCommit>false</defaultAutoCommit>
+                    <initialSize>0</initialSize>
+                    <testWhileIdle>true</testWhileIdle>
+                    <minEvictableIdleTimeMillis>4000</minEvictableIdleTimeMillis>
+                    <defaultTransactionIsolation>READ_COMMITTED</defaultTransactionIsolation>
+                </configuration>
+            </definition>
+        </datasource>
+
+        <datasource>
+            <name>WSO2_ANALYTICS_PROCESSED_DATA_STORE_DB</name>
+            <description>The datasource used for analytics record store</description>
+            <definition type="RDBMS">
+                <configuration>
+                    <url>{{WSO2AM_STAT_DB_JDBC_URL}}</url>
+                    <username>{{WSO2AM_STAT_DB_USERNAME}}</username>
+                    <password>{{WSO2AM_STAT_DB_PASSWORD}}</password>
+                    <driverClassName>{{WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME}}</driverClassName>
+                    <maxActive>{{DB_MAX_ACTIVE}}</maxActive>
+                    <maxWait>60000</maxWait>
+                    <validationQuery>SELECT 1</validationQuery>
+                    <defaultAutoCommit>false</defaultAutoCommit>
+                    <initialSize>0</initialSize>
+                    <testWhileIdle>true</testWhileIdle>
+                    <minEvictableIdleTimeMillis>4000</minEvictableIdleTimeMillis>
+                    <defaultTransactionIsolation>READ_COMMITTED</defaultTransactionIsolation>
+                </configuration>
+            </definition>
+        </datasource>
+
+    </datasources>
+
+</datasources-configuration>
+
