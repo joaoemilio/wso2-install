@@ -3,7 +3,7 @@ APIM_HOME="/opt/wso2/wso2am-2.2.0"
 PRODUCT="apim"
 VERSION="2.2.0"
 RESOURCES_PATH="/tmp/resources.tar.gz"
-RESOURCES_HOME="/opt/wso2/resources"
+RESOURCES_HOME="/opt/wso2/wso2-install/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
 WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/wso2am-2.2.0.1525177454672.zip"
