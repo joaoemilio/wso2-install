@@ -3,15 +3,15 @@
 VERSION=""
 DB=""
 
-if [ $1 = "2.2.0" ]
-then
+#if [ $1 = "2.2.0" ]
+#then
    VERSION=$1
-fi
+#fi
 
-if [ $2 = "mariadb" ]
-then
+#if [ $2 = "mariadb" ]
+#then
    DB=$2
-fi
+#fi
 
 cp -av resources /tmp/
 cd /tmp
