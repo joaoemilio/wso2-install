@@ -13,7 +13,6 @@ then
    DB=$2
 fi
 
-tar -cvzf /tmp/resources.tar.gz resources
+cp -av resources /tmp/
 cd /tmp
-tar -xvzf resources.tar.gz
 sh ./resources/setup-apim-$VERSION-$DB.sh
