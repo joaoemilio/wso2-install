@@ -1,0 +1,21 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+WUM_HOME=/opt/wso2/wum
+M2_HOME=/opt/wso2/maven
+JAVA_HOME=/opt/java/current
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$WUM_HOME/bin:$M2_HOME/bin:$JAVA_HOME/bin
+
+export PATH
+export M2_HOME
+export JAVA_HOME
+
+alias cdam='cd /opt/wso2/wso2apim/'
+alias tailam='tail -f /opt/wso2/wso2apim/repository/logs/wso2carbon.log'
+alias cdis='cd /opt/wso2/wso2is/'
+alias tailis='tail -f /opt/wso2/wso2is/repository/logs/wso2carbon.log'
