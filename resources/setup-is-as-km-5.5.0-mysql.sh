@@ -140,8 +140,8 @@ mv $IS_HOME $CARBON_HOME.$_DATAHORA
 
 echo "# descompactando binario de instalacao"
 cd /opt/wso2/
-ln -s wso2is-km-$VERSION wso2is
 unzip $WSO2IS_AS_KM_INSTALL_PATH
+ln -s wso2is-km-$VERSION wso2is
 
 echo "# IDENTITY SERVER AS KEY MANAGER #"
 echo "backup dos arquivos de configuracao original"
