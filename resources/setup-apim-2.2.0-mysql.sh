@@ -167,7 +167,7 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/c
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
-cp $RESOURCES_HOME/mysql/mysql-java-client-2.2.3.jar $CARBON_HOME/repository/components/lib/
+cp $RESOURCES_HOME/mysql/mysql-connector-java-5.1.46.jar $CARBON_HOME/repository/components/lib/
 
 echo "atualizando scripts mysql-5.7"
 mv $CARBON_HOME/dbscripts/mysql.sql $CARBON_HOME/dbscripts/mysql5.x.sql
