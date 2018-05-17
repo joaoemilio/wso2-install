@@ -17,8 +17,8 @@ JDBC_HOST_PORT="10.158.0.5"
 
 JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
 
-CARBON_HOST="identity.minegames.com.br"
-CARBON_MGT_HOSTNAME="identity.minegames.com.br"
+CARBON_HOST="identity53.minegames.com.br"
+CARBON_MGT_HOSTNAME="identity53.minegames.com.br"
 CARBON_OFFSET="100"
 CARBON_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 CARBON_DB_USERNAME="wso2"
@@ -69,22 +69,22 @@ WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 #WSO2_METRICS_DB_PASSWORD="wso2carbon"
 #WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
 
-WSO2AM_HOSTNAME="apim.minegames.com.br"
+WSO2AM_HOSTNAME="apim21.minegames.com.br"
 
-APISTORE_URL="apim.minegames.com.br"
+APISTORE_URL="apim21.minegames.com.br"
 APISTORE_VAR="{{APISTORE_WHITELISTED_HOSTNAMES}}"
-APIPUBLISHER_URL="apim.minegames.com.br"
+APIPUBLISHER_URL="apim21.minegames.com.br"
 
-APISTORE_WHITELISTED_HOSTNAMES='"localhost", "apim.minegames.com.br","identity.minegames.com.br"' 
-APIGATEWAY_URL="https://gateway.minegames.com.br"
+APISTORE_WHITELISTED_HOSTNAMES='"localhost", "apim21.minegames.com.br","identity53.minegames.com.br"' 
+APIGATEWAY_URL="https://gateway21.minegames.com.br"
 
-WSO2AM_ANALYTICS_HOSTNAME="apim-analytics.minegames.com.br"
+WSO2AM_ANALYTICS_HOSTNAME="apim-analytics21.minegames.com.br"
 WSO2AM_ANALYTICS_PORT="443"
 
-WSO2IS_ANALYTICS_HOSTNAME="is-analytics.minegames.com.br"
+WSO2IS_ANALYTICS_HOSTNAME="is-analytics21.minegames.com.br"
 WSO2IS_ANALYTICS_PORT="443"
 
-IS_AS_KM_HOSTNAME="identity.minegames.com.br"
+IS_AS_KM_HOSTNAME="identity53.minegames.com.br"
 IS_AS_KM_PORT="443"
 
 #echo "descompactando arquivo com configuracoes template"
