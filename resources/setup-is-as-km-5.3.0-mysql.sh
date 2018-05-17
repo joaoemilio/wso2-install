@@ -89,7 +89,7 @@ IS_AS_KM_PORT="443"
 
 #echo "descompactando arquivo com configuracoes template"
 #tar -xvzf $RESOURCES_PATH
-
+cd $RESOURCES_HOME
 find . -type f -name *.xml | while read FILE
 do
 echo "atualizando arquivo $FILE"
