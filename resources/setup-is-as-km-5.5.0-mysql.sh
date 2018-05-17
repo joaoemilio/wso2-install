@@ -6,7 +6,7 @@ RESOURCES_PATH="/tmp/resources.tar.gz"
 RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1525356716281.zip"
+WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
 DB="mysql"
 DB_MAX_ACTIVE=20
 DB_MIN_ACTIVE=5
@@ -137,6 +137,9 @@ done
 
 echo "# removendo instalação anterior"
 mv $IS_HOME $CARBON_HOME.$_DATAHORA
+
+tar -xvzf ../files/wum-2.0-linux-x64.tar.gz /opt/wso2/
+wum add wso2is
 
 echo "# descompactando binario de instalacao"
 cd /opt/wso2/
