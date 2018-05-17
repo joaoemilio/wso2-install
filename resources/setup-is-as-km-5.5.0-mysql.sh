@@ -138,8 +138,8 @@ done
 echo "# removendo instalação anterior"
 mv $IS_HOME $CARBON_HOME.$_DATAHORA
 
-tar -xvzf ../files/wum-2.0-linux-x64.tar.gz /opt/wso2/
-wum add wso2is
+#tar -xvzf ../files/wum-2.0-linux-x64.tar.gz /opt/wso2/
+#wum add wso2is
 
 echo "# descompactando binario de instalacao"
 cd /opt/wso2/
