@@ -1,4 +1,4 @@
-CARBON_HOME="/opt/wso2/wso2is"
+CARBON_HOME="/opt/wso2/wso2is-5.3.0"
 VERSION="5.3.0"
 RELEASE="1526303442903"
 IS_HOME="/opt/wso2/wso2is-km-$VERSION"
@@ -13,7 +13,7 @@ DB_DRIVER_FILENAME="mysql-connector-java-5.1.46.jar"
 DB_MAX_ACTIVE=20
 DB_MIN_ACTIVE=5
 DB_MAX_IDLE=5
-JDBC_HOST_PORT="10.158.0.5"
+JDBC_HOST_PORT="10.158.0.5:3307"
 
 JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
 
