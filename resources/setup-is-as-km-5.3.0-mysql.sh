@@ -1,4 +1,4 @@
-CARBON_HOME="/opt/wso2/wso2is-5.3.0"
+CARBON_HOME="/opt/wso2/wso2is-km-5.3.0"
 VERSION="5.3.0"
 RELEASE="1526303442903"
 IS_HOME="/opt/wso2/wso2is-km-$VERSION"
