@@ -8,6 +8,7 @@ _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
 WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
 DB="mysql"
+DB_DRIVER_FILENAME="mysql-connector-java-5.1.46.jar"
 DB_MAX_ACTIVE=20
 DB_MIN_ACTIVE=5
 DB_MAX_IDLE=5
@@ -170,5 +171,13 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources.xml $CA
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/
-cp $RESOURCES_HOME/oracle12c/ojdbc8.jar $CARBON_HOME/repository/components/lib/
-cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+cp $RESOURCES_HOME/$DB/$DB_DRIVER_FILENAME $CARBON_HOME/repository/components/lib/
+#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+
+cd /tmp/resources/
+SSL_C="BR"
+SSL_O="Minegames"
+SSL_OU="MineGames Software"
+SSL_L="Rio de Janeiro"
+SSL_ST="RJ"
+keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
