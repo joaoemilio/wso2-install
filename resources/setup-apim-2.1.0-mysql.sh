@@ -1,4 +1,4 @@
-CARBON_HOME="/opt/wso2/wso2apim"
+CARBON_HOME="/opt/wso2/wso2am-2.1.0"
 APIM_HOME="/opt/wso2/wso2am-2.1.0"
 PRODUCT="apim"
 VERSION="2.1.0"
