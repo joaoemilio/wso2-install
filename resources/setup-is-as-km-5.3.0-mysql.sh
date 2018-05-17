@@ -19,7 +19,7 @@ JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
 
 CARBON_HOST="identity.minegames.com.br"
 CARBON_MGT_HOSTNAME="identity.minegames.com.br"
-
+CARBON_OFFSET="100"
 CARBON_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 CARBON_DB_USERNAME="wso2"
 CARBON_DB_PASSWORD="wso2123"
@@ -134,6 +134,7 @@ sed -i  "s,{{WSO2AM_HOSTNAME}},$WSO2AM_HOSTNAME,g" $FILE
 sed -i  "s,{{APIGATEWAY_URL}},$APIGATEWAY_URL,g" $FILE
 sed -i  "s,{{APISTORE_URL}},$APISTORE_URL,g" $FILE
 sed -i  "s,{{APIPUBLISHER_URL}},$APIPUBLISHER_URL,g" $FILE
+sed -i "s,{{CARBON_OFFSET}},$CARBON_OFFSET,g" $FILE
 #sed -i "s,$APISTORE_VAR,$APISTORE_WHITELISTED_HOSTNAMES,g" $FILE
 done
 
