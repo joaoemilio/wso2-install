@@ -77,6 +77,11 @@ GATEWAY_IP_ADDRESS="10.158.0.2"
 
 APISTORE_URL="apim.minegames.com.br"
 APIPUBLISHER_URL="apim.minegames.com.br"
+REVERSE_PROXY_ENABLED="true"
+APISTORE_CONTEXT="/store"
+APIADMIN_URL="apim.minegames.com.br"
+APIADMIN_CONTEXT="/admin"
+APIPUBLISHER_CONTEXT="/publisher"
 
 APISTORE_HOSTNAME="apim.minegames.com.br"
 APIGATEWAY_URL="https://gateway.minegames.com.br"
@@ -93,7 +98,7 @@ IS_AS_KM_PORT="443"
 #echo "descompactando arquivo com configuracoes template"
 #tar -xvzf $RESOURCES_PATH
 
-find . -type f -name *.xml | while read FILE
+find ./apim -type f | while read FILE
 do
 echo "atualizando arquivo $FILE"
 sed -i "s,{{DB_MAX_ACTIVE}},$DB_MAX_ACTIVE,g" $FILE
@@ -138,6 +143,8 @@ sed -i  "s,{{APIGATEWAY_URL}},$APIGATEWAY_URL,g" $FILE
 sed -i  "s,{{APISTORE_URL}},$APISTORE_URL,g" $FILE
 sed -i  "s,{{APIPUBLISHER_URL}},$APIPUBLISHER_URL,g" $FILE
 sed -i  "s,{{APISTORE_HOSTNAME}},$APISTORE_HOSTNAME,g" $FILE
+sed -i "s,{{REVERSE_PROXY_ENABLED}},$REVERSE_PROXY_ENABLED,g" $FILE
+sed -i "s,{{APISTORE_CONTEXT}},$APISTORE_CONTEXT,g" $FILE
 done
 
 echo "# removendo instalação anterior"

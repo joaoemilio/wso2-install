@@ -1,51 +1,50 @@
-CARBON_HOME="/opt/wso2/wso2is"
-IS_HOME="/opt/wso2/wso2is-km-5.5.0"
-PRODUCT="is-as-km"
-VERSION="5.5.0"
+CARBON_HOME="/opt/wso2/wso2apim"
+APIM_HOME="/opt/wso2/wso2am-2.1.0"
+PRODUCT="apim"
+VERSION="2.1.0"
 RESOURCES_PATH="/tmp/resources.tar.gz"
 RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
+WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.1.0/wso2am-2.1.0.1526286245625.zip"
 DB="mysql"
-DB_DRIVER_FILENAME="mysql-connector-java-5.1.46.jar"
 DB_MAX_ACTIVE=20
 DB_MIN_ACTIVE=5
 DB_MAX_IDLE=5
-DB_IP_ADDRESS="10.158.0.5"
+JDBC_HOST_PORT="10.158.0.5:3307"
 
 JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
 
-CARBON_HOST="identity.minegames.com.br"
-CARBON_MGT_HOSTNAME="identity.minegames.com.br"
+CARBON_HOST="apim.minegames.com.br"
+CARBON_MGT_HOSTNAME="apim.minegames.com.br"
 
-CARBON_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
+CARBON_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 CARBON_DB_USERNAME="wso2"
 CARBON_DB_PASSWORD="wso2123"
 CARBON_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 
-WSO2UM_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
+WSO2UM_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 WSO2UM_DB_USERNAME="wso2"
 WSO2UM_DB_PASSWORD="wso2123"
 WSO2UM_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 
-WSO2GOV_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
+WSO2GOV_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 WSO2GOV_DB_USERNAME="wso2"
 WSO2GOV_DB_PASSWORD="wso2123"
 WSO2GOV_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 
-WSO2AM_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
+WSO2AM_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 WSO2AM_DB_USERNAME="wso2"
 WSO2AM_DB_PASSWORD="wso2123"
 WSO2AM_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 
-WSO2AM_STAT_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2stat?useSSL=false"
+WSO2AM_STAT_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2stat?useSSL=false"
 WSO2AM_STAT_DB_USERNAME="wso2stat"
 WSO2AM_STAT_DB_PASSWORD="wso2123"
 WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 
 # MB_STORE ORACLE
-WSO2_MB_STORE_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
+WSO2_MB_STORE_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 WSO2_MB_STORE_DB_USERNAME="wso2"
 WSO2_MB_STORE_DB_PASSWORD="wso2123"
 WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
@@ -57,7 +56,7 @@ WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 #WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
 
 # METRICS ORACLE
-WSO2_METRICS_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
+WSO2_METRICS_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/wso2?useSSL=false"
 WSO2_METRICS_DB_USERNAME="wso2"
 WSO2_METRICS_DB_PASSWORD="wso2123"
 WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
@@ -69,18 +68,28 @@ WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 #WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
 
 WSO2AM_HOSTNAME="apim.minegames.com.br"
+APIM_SSL_CERTIFICATE="apim.minegames.com.br.cer"
+APIM_SSL_KEY="apim.minegames.com.br.key"
+GATEWAY_SSL_CERTIFICATE="gateway.minegames.com.br.cer"
+GATEWAY_SSL_KEY="gateway.minegames.com.br.key"
+APIM_IP_ADDRESS="10.158.0.2"
+GATEWAY_IP_ADDRESS="10.158.0.2"
 
 APISTORE_URL="apim.minegames.com.br"
-APISTORE_VAR="{{APISTORE_WHITELISTED_HOSTNAMES}}"
 APIPUBLISHER_URL="apim.minegames.com.br"
+REVERSE_PROXY_ENABLED="true"
+APISTORE_CONTEXT="/store"
+APIADMIN_URL="apim.minegames.com.br"
+APIADMIN_CONTEXT="/admin"
+APIPUBLISHER_CONTEXT="/publisher"
 
-APISTORE_WHITELISTED_HOSTNAMES='"localhost", "apim.minegames.com.br","identity.minegames.com.br"' 
+APISTORE_HOSTNAME="apim.minegames.com.br"
 APIGATEWAY_URL="https://gateway.minegames.com.br"
 
-WSO2AM_ANALYTICS_HOSTNAME="apim-analytics.minegames.com.br"
+WSO2AM_ANALYTICS_HOSTNAME="analytics-apim.minegames.com.br"
 WSO2AM_ANALYTICS_PORT="443"
 
-WSO2IS_ANALYTICS_HOSTNAME="is-analytics.minegames.com.br"
+WSO2IS_ANALYTICS_HOSTNAME="analytics-is.minegames.com.br"
 WSO2IS_ANALYTICS_PORT="443"
 
 IS_AS_KM_HOSTNAME="identity.minegames.com.br"
@@ -89,7 +98,7 @@ IS_AS_KM_PORT="443"
 #echo "descompactando arquivo com configuracoes template"
 #tar -xvzf $RESOURCES_PATH
 
-find . -type f -name *.xml | while read FILE
+find ./apim -type f | while read FILE
 do
 echo "atualizando arquivo $FILE"
 sed -i "s,{{DB_MAX_ACTIVE}},$DB_MAX_ACTIVE,g" $FILE
@@ -133,54 +142,48 @@ sed -i  "s,{{WSO2AM_HOSTNAME}},$WSO2AM_HOSTNAME,g" $FILE
 sed -i  "s,{{APIGATEWAY_URL}},$APIGATEWAY_URL,g" $FILE
 sed -i  "s,{{APISTORE_URL}},$APISTORE_URL,g" $FILE
 sed -i  "s,{{APIPUBLISHER_URL}},$APIPUBLISHER_URL,g" $FILE
-#sed -i "s,$APISTORE_VAR,$APISTORE_WHITELISTED_HOSTNAMES,g" $FILE
+sed -i  "s,{{APISTORE_HOSTNAME}},$APISTORE_HOSTNAME,g" $FILE
+sed -i "s,{{REVERSE_PROXY_ENABLED}},$REVERSE_PROXY_ENABLED,g" $FILE
+sed -i "s,{{APISTORE_CONTEXT}},$APISTORE_CONTEXT,g" $FILE
 done
 
 echo "# removendo instalação anterior"
-mv $IS_HOME $CARBON_HOME.$_DATAHORA
-
-#tar -xvzf ../files/wum-2.0-linux-x64.tar.gz /opt/wso2/
-#wum add wso2is
+mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 
 echo "# descompactando binario de instalacao"
 cd /opt/wso2/
-unzip $WSO2IS_AS_KM_INSTALL_PATH
-ln -s wso2is-km-$VERSION wso2is
+unzip $WSO2AM_INSTALL_PATH
 
-echo "# IDENTITY SERVER AS KEY MANAGER #"
+echo "# API MANAGER #"
 echo "backup dos arquivos de configuracao original"
 echo $_DATAHORA >> executions.txt 
 echo "\n" >> executions.txt 
 cp $CARBON_HOME/repository/conf/carbon.xml $CARBON_HOME/repository/conf/carbon.xml.orig.$_DATAHORA
-cp $CARBON_HOME/repository/conf/consent-mgt-config.xml $CARBON_HOME/repository/conf/consent-mgt-config.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/registry.xml $CARBON_HOME/repository/conf/registry.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/api-manager.xml $CARBON_HOME/repository/conf/api-manager.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/user-mgt.xml $CARBON_HOME/repository/conf/user-mgt.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/datasources/master-datasources.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml.orig.$_DATAHORA
-cp $CARBON_HOME/repository/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/identity.xml.orig.$_DATAHORA
-cp $CARBON_HOME/repository/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/embedded-ldap.xml.orig.$_DATAHORA
-cp $CARBON_HOME/repository/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/thrift-authentication.xml.orig.$_DATAHORA
+cp $CARBON_HOME/repository/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/metrics-datasources.xml.orig.$_DATAHORA
+cp $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/site.json.orig.$_DATAHORA
 
 echo "# substituindo arquivos de configuracao"
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon.xml $CARBON_HOME/repository/conf/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/consent-mgt-config.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources.xml $CARBON_HOME/repository/conf/datasources/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/
-cp $RESOURCES_HOME/$DB/$DB_DRIVER_FILENAME $CARBON_HOME/repository/components/lib/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOME/repository/conf/tomcat/
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
+cp $RESOURCES_HOME/mysql/mysql-connector-java-5.1.46.jar $CARBON_HOME/repository/components/lib/
 
-#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+echo "atualizando scripts mysql-5.7"
+mv $CARBON_HOME/dbscripts/mysql.sql $CARBON_HOME/dbscripts/mysql5.x.sql
+mv $CARBON_HOME/dbscripts/mysql5.7.sql $CARBON_HOME/dbscripts/mysql.sql
+mv $CARBON_HOME/dbscripts/apimgt/mysql.sql $CARBON_HOME/dbscripts/apimgt/mysql5.x.sql
+mv $CARBON_HOME/dbscripts/apimgt/mysql5.7.sql $CARBON_HOME/dbscripts/apimgt/mysql.sql
 
-cd $RESOURCES_HOME
-SSL_C="BR"
-SSL_O="Minegames"
-SSL_OU="MineGames Software"
-SSL_L="Rio de Janeiro"
-SSL_ST="RJ"
-keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
-cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks 
+#keytool -export -alias wso2carbon -keystore $CARBON_HOME/repository/resources/security/$IS_AS_KM_HOSTNAME.wso2carbon.jks -file $IS_AS_KM_HOSTNAME.cer
+#keytool -import -alias $IS_AS_KM_HOSTNAME.wso2carbon -keystore $CARBON_HOME/repository/resources/security/client-truststore.jks -file $IS_AS_KM_HOSTNAME.cer
+
+#keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,S=$SSL_S,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
