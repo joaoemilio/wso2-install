@@ -15,8 +15,8 @@ DB_IP_ADDRESS="10.158.0.5"
 
 JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
 
-CARBON_HOST="app1ssosite014h.hom.sicredi.net"
-CARBON_MGT_HOSTNAME="app1ssosite014h.hom.sicredi.net"
+CARBON_HOST="identity.minegames.com.br"
+CARBON_MGT_HOSTNAME="identity.minegames.com.br"
 
 CARBON_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
 CARBON_DB_USERNAME="wso2"
@@ -67,23 +67,23 @@ WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
 #WSO2_METRICS_DB_PASSWORD="wso2carbon"
 #WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
 
-WSO2AM_HOSTNAME="app1ssosite014h.hom.sicredi.net"
+WSO2AM_HOSTNAME="apim.minegames.com.br"
 
-APISTORE_URL="app1ssosite014h.hom.sicredi.net"
+APISTORE_URL="apim.minegames.com.br"
 APISTORE_VAR="{{APISTORE_WHITELISTED_HOSTNAMES}}"
-APIPUBLISHER_URL="app1ssosite014h.hom.sicredi.net"
+APIPUBLISHER_URL="apim.minegames.com.br"
 
-APISTORE_WHITELISTED_HOSTNAMES='"localhost", "app1ssosite014h.hom.sicredi.net"' 
-APIGATEWAY_URL="https://app1ssosite014h.hom.sicredi.net:8243"
+APISTORE_WHITELISTED_HOSTNAMES='"localhost", "apim.minegames.com.br","identity.minegames.com.br"' 
+APIGATEWAY_URL="https://gateway.minegames.com.br"
 
-WSO2AM_ANALYTICS_HOSTNAME="app1ssosite016h.hom.sicredi.net"
-WSO2AM_ANALYTICS_PORT="9443"
+WSO2AM_ANALYTICS_HOSTNAME="apim-analytics.minegames.com.br"
+WSO2AM_ANALYTICS_PORT="443"
 
-WSO2IS_ANALYTICS_HOSTNAME="app1ssosite016h.hom.sicredi.net"
-WSO2IS_ANALYTICS_PORT="9444"
+WSO2IS_ANALYTICS_HOSTNAME="is-analytics.minegames.com.br"
+WSO2IS_ANALYTICS_PORT="443"
 
-IS_AS_KM_HOSTNAME="app1ssosite015h.hom.sicredi.net"
-IS_AS_KM_PORT="9443"
+IS_AS_KM_HOSTNAME="identity.minegames.com.br"
+IS_AS_KM_PORT="443"
 
 #echo "descompactando arquivo com configuracoes template"
 #tar -xvzf $RESOURCES_PATH
