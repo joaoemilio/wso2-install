@@ -16,6 +16,10 @@
 ##
 ################################################################################
 
+#####
+##### LEMBRE DE INSTALAR O WGET 
+#####
+
 ADMIN_EMAIL=""
 # type can be jre or jdk
 JAVA_TYPE="jre"

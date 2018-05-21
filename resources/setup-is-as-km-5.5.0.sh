@@ -3,87 +3,12 @@ IS_HOME="/opt/wso2/wso2is-km-5.5.0"
 PRODUCT="is-as-km"
 VERSION="5.5.0"
 RESOURCES_PATH="/tmp/resources.tar.gz"
-RESOURCES_HOME="/opt/wso2/resources"
+RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1525356716281.zip"
+WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
 
-DB_MAX_ACTIVE=20
-DB_MIN_ACTIVE=5
-DB_MAX_IDLE=5
-
-CARBON_HOST="app1ssosite014h.hom.sicredi.net"
-CARBON_MGT_HOSTNAME="app1ssosite014h.hom.sicredi.net"
-
-CARBON_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-CARBON_DB_USERNAME="wso2"
-CARBON_DB_PASSWORD="wso2123"
-CARBON_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-WSO2UM_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-WSO2UM_DB_USERNAME="wso2"
-WSO2UM_DB_PASSWORD="wso2123"
-WSO2UM_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-WSO2GOV_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-WSO2GOV_DB_USERNAME="wso2"
-WSO2GOV_DB_PASSWORD="wso2123"
-WSO2GOV_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-WSO2AM_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-WSO2AM_DB_USERNAME="wso2"
-WSO2AM_DB_PASSWORD="wso2123"
-WSO2AM_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-WSO2AM_STAT_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-WSO2AM_STAT_DB_USERNAME="wso2_stat"
-WSO2AM_STAT_DB_PASSWORD="wso2carbon"
-WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-# MB_STORE ORACLE
-WSO2_MB_STORE_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-WSO2_MB_STORE_DB_USERNAME="wso2"
-WSO2_MB_STORE_DB_PASSWORD="wso2123"
-WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-#MB_STORE H2 
-#WSO2_MB_STORE_DB_JDBC_URL="jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE"
-#WSO2_MB_STORE_DB_USERNAME="wso2carbon"
-#WSO2_MB_STORE_DB_PASSWORD="wso2carbon"
-#WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
-
-# METRICS ORACLE
-WSO2_METRICS_DB_JDBC_URL="jdbc:oracle:thin:@//dtb1admindb040h.hom.sicredi.net:1521/WSO2PDB.hom.sicredi.net"
-WSO2_METRICS_DB_USERNAME="wso2"
-WSO2_METRICS_DB_PASSWORD="wso2123"
-WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="oracle.jdbc.driver.OracleDriver"
-
-# METRICS H2
-#WSO2_METRICS_DB_JDBC_URL="jdbc:h2:repository/database/WSO2METRICS_DB;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE"
-#WSO2_METRICS_DB_USERNAME="wso2carbon"
-#WSO2_METRICS_DB_PASSWORD="wso2carbon"
-#WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
-
-WSO2AM_HOSTNAME="app1ssosite014h.hom.sicredi.net"
-
-APISTORE_URL="app1ssosite014h.hom.sicredi.net"
-APISTORE_VAR="{{APISTORE_WHITELISTED_HOSTNAMES}}"
-APIPUBLISHER_URL="app1ssosite014h.hom.sicredi.net"
-
-APISTORE_WHITELISTED_HOSTNAMES='"localhost", "app1ssosite014h.hom.sicredi.net"' 
-APIGATEWAY_URL="https://app1ssosite014h.hom.sicredi.net:8243"
-
-WSO2AM_ANALYTICS_HOSTNAME="app1ssosite016h.hom.sicredi.net"
-WSO2AM_ANALYTICS_PORT="9443"
-
-WSO2IS_ANALYTICS_HOSTNAME="app1ssosite016h.hom.sicredi.net"
-WSO2IS_ANALYTICS_PORT="9444"
-
-IS_AS_KM_HOSTNAME="app1ssosite015h.hom.sicredi.net"
-IS_AS_KM_PORT="9443"
-
-#echo "descompactando arquivo com configuracoes template"
-#tar -xvzf $RESOURCES_PATH
+sh $1 $2
 
 find . -type f -name *.xml | while read FILE
 do
@@ -135,9 +60,13 @@ done
 echo "# removendo instalação anterior"
 mv $IS_HOME $CARBON_HOME.$_DATAHORA
 
+#tar -xvzf ../files/wum-2.0-linux-x64.tar.gz /opt/wso2/
+#wum add wso2is
+
 echo "# descompactando binario de instalacao"
 cd /opt/wso2/
 unzip $WSO2IS_AS_KM_INSTALL_PATH
+ln -s wso2is-km-$VERSION wso2is
 
 echo "# IDENTITY SERVER AS KEY MANAGER #"
 echo "backup dos arquivos de configuracao original"
@@ -163,5 +92,16 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources.xml $CA
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/
-cp $RESOURCES_HOME/oracle12c/ojdbc8.jar $CARBON_HOME/repository/components/lib/
+cp $RESOURCES_HOME/$DB/$DB_DRIVER_FILENAME $CARBON_HOME/repository/components/lib/
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOME/repository/conf/tomcat/
+
+#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+
+cd $RESOURCES_HOME
+SSL_C="BR"
+SSL_O="Minegames"
+SSL_OU="MineGames Software"
+SSL_L="Rio de Janeiro"
+SSL_ST="RJ"
+keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
 cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/

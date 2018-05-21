@@ -1,94 +1,19 @@
-CARBON_HOME="/opt/wso2/wso2is"
-IS_HOME="/opt/wso2/wso2is-km-5.5.0"
+VERSION="5.3.0"
+CARBON_HOME="/opt/wso2/wso2is-km-$VERSION"
+RELEASE="1526303442903"
+IS_HOME="/opt/wso2/wso2is-km-$VERSION"
 PRODUCT="is-as-km"
-VERSION="5.5.0"
 RESOURCES_PATH="/tmp/resources.tar.gz"
 RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
-DB="mysql"
-DB_DRIVER_FILENAME="mysql-connector-java-5.1.46.jar"
-DB_MAX_ACTIVE=20
-DB_MIN_ACTIVE=5
-DB_MAX_IDLE=5
-DB_IP_ADDRESS="10.158.0.5"
+WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/$VERSION/wso2is-km-$VERSION.$RELEASE.zip"
 
-JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
-
-CARBON_HOST="identity.minegames.com.br"
-CARBON_MGT_HOSTNAME="identity.minegames.com.br"
-
-CARBON_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
-CARBON_DB_USERNAME="wso2"
-CARBON_DB_PASSWORD="wso2123"
-CARBON_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-WSO2UM_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
-WSO2UM_DB_USERNAME="wso2"
-WSO2UM_DB_PASSWORD="wso2123"
-WSO2UM_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-WSO2GOV_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
-WSO2GOV_DB_USERNAME="wso2"
-WSO2GOV_DB_PASSWORD="wso2123"
-WSO2GOV_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-WSO2AM_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
-WSO2AM_DB_USERNAME="wso2"
-WSO2AM_DB_PASSWORD="wso2123"
-WSO2AM_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-WSO2AM_STAT_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2stat?useSSL=false"
-WSO2AM_STAT_DB_USERNAME="wso2stat"
-WSO2AM_STAT_DB_PASSWORD="wso2123"
-WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-# MB_STORE ORACLE
-WSO2_MB_STORE_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
-WSO2_MB_STORE_DB_USERNAME="wso2"
-WSO2_MB_STORE_DB_PASSWORD="wso2123"
-WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-#MB_STORE H2 
-#WSO2_MB_STORE_DB_JDBC_URL="jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE"
-#WSO2_MB_STORE_DB_USERNAME="wso2carbon"
-#WSO2_MB_STORE_DB_PASSWORD="wso2carbon"
-#WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
-
-# METRICS ORACLE
-WSO2_METRICS_DB_JDBC_URL="jdbc:mysql://$DB_IP_ADDRESS:3306/wso2?useSSL=false"
-WSO2_METRICS_DB_USERNAME="wso2"
-WSO2_METRICS_DB_PASSWORD="wso2123"
-WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
-
-# METRICS H2
-#WSO2_METRICS_DB_JDBC_URL="jdbc:h2:repository/database/WSO2METRICS_DB;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE"
-#WSO2_METRICS_DB_USERNAME="wso2carbon"
-#WSO2_METRICS_DB_PASSWORD="wso2carbon"
-#WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="org.h2.Driver"
-
-WSO2AM_HOSTNAME="apim.minegames.com.br"
-
-APISTORE_URL="apim.minegames.com.br"
-APISTORE_VAR="{{APISTORE_WHITELISTED_HOSTNAMES}}"
-APIPUBLISHER_URL="apim.minegames.com.br"
-
-APISTORE_WHITELISTED_HOSTNAMES='"localhost", "apim.minegames.com.br","identity.minegames.com.br"' 
-APIGATEWAY_URL="https://gateway.minegames.com.br"
-
-WSO2AM_ANALYTICS_HOSTNAME="apim-analytics.minegames.com.br"
-WSO2AM_ANALYTICS_PORT="443"
-
-WSO2IS_ANALYTICS_HOSTNAME="is-analytics.minegames.com.br"
-WSO2IS_ANALYTICS_PORT="443"
-
-IS_AS_KM_HOSTNAME="identity.minegames.com.br"
-IS_AS_KM_PORT="443"
+sh $1 $2
 
 #echo "descompactando arquivo com configuracoes template"
 #tar -xvzf $RESOURCES_PATH
-
+cd $RESOURCES_HOME
 find . -type f -name *.xml | while read FILE
 do
 echo "atualizando arquivo $FILE"
@@ -133,6 +58,7 @@ sed -i  "s,{{WSO2AM_HOSTNAME}},$WSO2AM_HOSTNAME,g" $FILE
 sed -i  "s,{{APIGATEWAY_URL}},$APIGATEWAY_URL,g" $FILE
 sed -i  "s,{{APISTORE_URL}},$APISTORE_URL,g" $FILE
 sed -i  "s,{{APIPUBLISHER_URL}},$APIPUBLISHER_URL,g" $FILE
+sed -i "s,{{CARBON_OFFSET}},$CARBON_OFFSET,g" $FILE
 #sed -i "s,$APISTORE_VAR,$APISTORE_WHITELISTED_HOSTNAMES,g" $FILE
 done
 
@@ -176,11 +102,11 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOM
 
 #cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
 
-cd $RESOURCES_HOME
-SSL_C="BR"
-SSL_O="Minegames"
-SSL_OU="MineGames Software"
-SSL_L="Rio de Janeiro"
-SSL_ST="RJ"
-keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
-cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+#cd $RESOURCES_HOME
+#SSL_C="BR"
+#SSL_O="Minegames"
+#SSL_OU="MineGames Software"
+#SSL_L="Rio de Janeiro"
+#SSL_ST="RJ"
+#keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
+#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
