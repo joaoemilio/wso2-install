@@ -6,7 +6,7 @@ RESOURCES_PATH="/tmp/resources.tar.gz"
 RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
+WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526555621380.zip"
 WSO2_INSTALL_PATH="/opt/wso2/install/wso2-install"
 
 rm -rf $RESOURCES_HOME
