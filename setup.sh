@@ -22,7 +22,7 @@ cd /tmp
 sh $ENV_SETUP_SCRIPT
 sh ./resources/setup-$PRODUCT-$VERSION-$DB.sh
 
-SSL_CN="apim21.minegames.com.br"
+SSL_CN=""
 SSL_DN=""
 #openssl genrsa -des3 -out $SSL_CN.key 1024
 #sudo openssl req -new -key $SSL_CN.key -out $SSL_CN.csr
