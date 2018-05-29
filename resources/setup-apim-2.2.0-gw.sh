@@ -47,9 +47,7 @@ rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/store
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/throttle*
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/oauth2*
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/client-registration*
-rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#store*
-rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#publisher*
-rm -rf $CARBON_HOME/repository/deployment/server/webapps/am#*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#*
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/micro-*
 
 if [ $1 = "mysql57" ]
