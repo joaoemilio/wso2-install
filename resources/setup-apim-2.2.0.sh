@@ -6,7 +6,9 @@ RESOURCES_PATH="/tmp/resources.tar.gz"
 RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/wso2am-2.2.0.1526446794006.zip"
+LATEST=`ls -ltr ~/.wum-wso2/products/wso2am/2.2.0/ | tail -n1 | awk '{print $NF}'`
+WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/$LATEST"
+echo "$WSO2AM_INSTALL_PATH"
 
 sh $1 $2
 

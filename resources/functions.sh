@@ -53,5 +53,8 @@ echo "resources home = $1"
     sed -i "s,{{APIPUBLISHER_CONTEXT}},$APIPUBLISHER_CONTEXT,g" $FILE
     sed -i "s,{{APIADMIN_CONTEXT}},$APIADMIN_CONTEXT,g" $FILE
     sed -i "s,{{APIADMIN_URL}},$APIADMIN_URL,g" $FILE
+    sed -i "s,{{RECEIVER_URL_GROUP}},$RECEIVER_URL_GROUP,g" $FILE
+    sed -i "s,{{AUTH_URL_GROUP}},$AUTH_URL_GROUP,g" $FILE
+    sed -i "s,{{TRAFFIC_MANAGER}},$TRAFFIC_MANAGER,g" $FILE
     done
 }
