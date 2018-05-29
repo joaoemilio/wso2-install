@@ -8,7 +8,7 @@ _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
 WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/wso2am-2.2.0.1527148666895.zip"
 
-sh $1 $2
+sh $1
 
 cd $RESOURCES_HOME
 find ./apim -type f | while read FILE
