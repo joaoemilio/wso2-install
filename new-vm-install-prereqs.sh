@@ -13,9 +13,9 @@ exit
 cd /opt/
 sudo mkdir java
 cd java
-sudo /opt/wso2/wso2-install/install-java.sh 8 tar jdk
+sudo /opt/wso2/install/wso2-install/install-java.sh 8 tar jdk
 sudo ln -s /opt/java/jdk1.8.0_172 current
-sudo chown -R wso2:wso2 java
+sudo chown -R wso2:wso2 /opt/java
 sudo su - wso2
 cd /opt/wso2
 ln -s wso2am-2.2.0 wso2apim 

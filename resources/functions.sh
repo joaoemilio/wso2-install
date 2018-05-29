@@ -1,6 +1,7 @@
 function replaceVars( ) {
 
-    cd $RESOURCES_HOME
+echo "resources home = $1"
+    cd $1
     find ./apim -type f | while read FILE
     do
     echo "atualizando arquivo $FILE"

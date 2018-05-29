@@ -23,14 +23,14 @@ cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 
 echo "substituindo variaveis nos arquivos configuracao template"
 source functions.sh
-replaceVars
+replaceVars $RESOURCES_HOME 
 
 echo "# removendo instalação anterior"
 mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 
 echo "# descompactando binario de instalacao"
 cd /opt/wso2/
-unzip $WSO2AM_INSTALL_PATH
+unzip -q $WSO2AM_INSTALL_PATH
 
 echo "# API MANAGER #"
 echo "backup dos arquivos de configuracao original"
