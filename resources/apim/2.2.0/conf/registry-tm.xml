@@ -49,7 +49,7 @@
     
     <mount path="/_system/config" overwrite="true">
        <instanceId>gov</instanceId>
-       <targetPath>/_system/config/am</targetPath>
+       <targetPath>/_system/config</targetPath>
     </mount>
 
     <indexingConfiguration>
