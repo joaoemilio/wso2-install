@@ -14,6 +14,8 @@ mkdir -p $RESOURCES_HOME
 cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 
 sh $1
+echo $DB 
+echo $APIM_DNS
 
 cd $RESOURCES_HOME
 find ./apim -type f | while read FILE
