@@ -9,6 +9,7 @@ _DATAHORA=`date +"%y%m%d_%H%M%S"`
 WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/wso2am-2.2.0.1527148666895.zip"
 WSO2_INSTALL_PATH="/opt/wso2/install/wso2-install"
 
+echo "(re)criando diretorio com os artefatos /tmp/resources"
 rm -rf $RESOURCES_HOME
 mkdir -p $RESOURCES_HOME
 cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
@@ -16,26 +17,18 @@ cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 echo "configurando variaveis de ambiente"
 source $1
 
-echo "(re)criando diretorio com os artefatos /tmp/resources"
-rm -rf $RESOURCES_HOME
-mkdir -p $RESOURCES_HOME
-cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
-
 echo "substituindo variaveis nos arquivos configuracao template"
 source functions.sh
 replaceVars
 
-echo "# removendo instalação anterior"
+echo "removendo instalação anterior"
 mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 
-echo "# descompactando binario de instalacao"
+echo "descompactando binario de instalacao"
 cd /opt/wso2/
 unzip $WSO2AM_INSTALL_PATH
 
-echo "# API MANAGER #"
 echo "backup dos arquivos de configuracao original"
-echo $_DATAHORA >> executions.txt 
-echo "\n" >> executions.txt 
 cp $CARBON_HOME/repository/conf/carbon.xml $CARBON_HOME/repository/conf/carbon.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/registry.xml $CARBON_HOME/repository/conf/registry.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/api-manager.xml $CARBON_HOME/repository/conf/api-manager.xml.orig.$_DATAHORA
@@ -46,21 +39,19 @@ cp $CARBON_HOME/repository/conf/datasources/master-datasources.xml $CARBON_HOME/
 cp $CARBON_HOME/repository/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/metrics-datasources.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/site.json.orig.$_DATAHORA
 
-echo "# substituindo arquivos de configuracao"
+echo "substituindo arquivos de configuracao"
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager-publisher.xml $CARBON_HOME/repository/conf/api-manager.xml
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager-store.xml $CARBON_HOME/repository/conf/api-manager.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOME/repository/conf/tomcat/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/axis2/axis2-publisher.xml $CARBON_HOME/repository/conf/axis2/axis2.xml
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/axis2/axis2-store.xml $CARBON_HOME/repository/conf/axis2/axis2.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/publisher/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/publisher/site/conf/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/admin/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/admin/site/conf/
 cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
 
-echo "apagando arquivos desnecessários para o publisher"
+echo "apagando arquivos desnecessários para a store"
 rm $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
 
 if [ $1 = "mysql57" ]
