@@ -63,9 +63,9 @@
 
   "reverseProxy": {
     "enabled": {{REVERSE_PROXY_ENABLED}},
-    "host": "{{APIADMIN_URL}}",
+    "host": "{{APIPUBLISHER_URL}}",
     "context": "{{APIADMIN_CONTEXT}}"
   },
   "mapExistingAuthApps" : false,
-  "whiteListedHostNames" : ["localhost", "{{APISTORE_HOSTNAME}}"]
+  "whiteListedHostNames" : ["localhost", "{{APIPUBLISHER_URL}}"]
 }
