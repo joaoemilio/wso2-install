@@ -8,6 +8,7 @@ _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
 LATEST=`ls -ltr ~/.wum-wso2/products/wso2am/2.2.0/ | tail -n1 | awk '{print $NF}'`
 WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/$LATEST"
+echo "$WSO2AM_INSTALL_PATH"
 WSO2_INSTALL_PATH="/opt/wso2/install/wso2-install"
 
 echo "(re)criando diretorio com os artefatos /tmp/resources"
@@ -27,7 +28,7 @@ mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 
 echo "descompactando binario de instalacao"
 cd /opt/wso2/
-unzip $WSO2AM_INSTALL_PATH
+unzip -q $WSO2AM_INSTALL_PATH
 
 echo "backup dos arquivos de configuracao original"
 cp $CARBON_HOME/repository/conf/carbon.xml $CARBON_HOME/repository/conf/carbon.xml.orig.$_DATAHORA
@@ -62,6 +63,7 @@ rm -rf $CARBON_HOME/repository/deployment/server/webapps/client-registration*
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#publisher*
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#admin*
 rm -rf $CARBON_HOME/repository/deployment/server/webapps/am#sample#pizzashack*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/micro-gateway*
 
 if [ $1 = "mysql57" ]
 then
