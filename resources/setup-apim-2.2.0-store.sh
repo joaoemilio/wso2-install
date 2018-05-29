@@ -18,8 +18,8 @@ echo "configurando variaveis de ambiente"
 source $1
 
 echo "substituindo variaveis nos arquivos configuracao template"
-source functions.sh
-replaceVars
+source $WSO2_INSTALL_PATH/resources/functions.sh
+replaceVars $RESOURCES_HOME 
 
 echo "removendo instalação anterior"
 mv $APIM_HOME $CARBON_HOME.$_DATAHORA
@@ -53,6 +53,14 @@ cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
 
 echo "apagando arquivos desnecessários para a store"
 rm $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
+rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/publisher 
+rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/admin 
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/throttle*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/oauth2*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/client-registration*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#publisher*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#admin*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/am#sample#pizzashack*
 
 if [ $1 = "mysql57" ]
 then
