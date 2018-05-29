@@ -103,16 +103,16 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/
-cp $RESOURCES_HOME/$DB/$DB_DRIVER_FILENAME $CARBON_HOME/repository/components/lib/
+cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOME/repository/conf/tomcat/
 
 #cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
 
 cd $RESOURCES_HOME
-SSL_C="BR"
-SSL_O="Minegames"
-SSL_OU="MineGames Software"
-SSL_L="Rio de Janeiro"
-SSL_ST="RJ"
-keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
-cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
+#SSL_C="BR"
+#SSL_O="Minegames"
+#SSL_OU="MineGames Software"
+#SSL_L="Rio de Janeiro"
+#SSL_ST="RJ"
+#keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=$IS_AS_KM_HOSTNAME, OU=$SSL_OU,O=$SSL_O,L=$SSL_L,ST=$SSL_ST,C=$SSL_C" -storepass wso2carbon -keypass wso2carbon 
+#cp $RESOURCES_HOME/wso2carbon.jks $CARBON_HOME/repository/resources/security/
