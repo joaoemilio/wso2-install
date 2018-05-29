@@ -8,6 +8,8 @@ sudo mkdir wso2
 sudo chown wso2:wso2 wso2
 sudo su - wso2
 cd /opt/wso2 
+mkdir install
+cd install
 git clone https://github.com/joaoemilio/wso2-install.git
 exit
 cd /opt/
