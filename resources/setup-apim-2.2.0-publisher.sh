@@ -15,7 +15,7 @@ cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 
 echo "##################################################"
 echo "CHAMAR SCRIPT DE ENVIRONMENT"
-sh $1
+source $1
 echo $DB 
 echo $APIM_DNS
 echo "##################################################"
