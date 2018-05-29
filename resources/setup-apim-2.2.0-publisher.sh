@@ -22,7 +22,7 @@ mkdir -p $RESOURCES_HOME
 cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 
 echo "substituindo variaveis nos arquivos configuracao template"
-source functions.sh
+source $WSO2_INSTALL_PATH/resources/functions.sh
 replaceVars $RESOURCES_HOME 
 
 echo "# removendo instalação anterior"
