@@ -7,9 +7,20 @@ RESOURCES_HOME="/tmp/resources"
 _DATAHORA=`date +"%y%m%d_%H%M%S"`
 # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
 WSO2IS_AS_KM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2is-km/5.5.0/wso2is-km-5.5.0.1526446794006.zip"
+WSO2_INSTALL_PATH="/opt/wso2/install/wso2-install"
 
-sh $1 $2
+rm -rf $RESOURCES_HOME
+mkdir -p $RESOURCES_HOME
+cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 
+echo "##################################################"
+echo "CHAMAR SCRIPT DE ENVIRONMENT"
+source $1
+echo $DB 
+echo $APIM_DNS
+echo "##################################################"
+
+cd $RESOURCES_HOME
 find . -type f -name *.xml | while read FILE
 do
 echo "atualizando arquivo $FILE"
@@ -88,7 +99,7 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/consent-mgt-config.xml $CARBON_HOME/re
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager.xml $CARBON_HOME/repository/conf/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources.xml $CARBON_HOME/repository/conf/datasources/
+cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/

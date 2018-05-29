@@ -100,7 +100,7 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $C
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
 cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
 
-diff $CARBON_HOME/repository/conf/datasources/master-datasources.xml
+cat $CARBON_HOME/repository/conf/datasources/master-datasources.xml
 echo "$WSO2GOV_DB_JDBC_URL"
 
 echo "apagando arquivos desnecessários para o publisher"
