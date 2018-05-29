@@ -16,6 +16,7 @@ cd /opt/
 sudo mkdir java
 cd java
 sudo /opt/wso2/install/wso2-install/install-java.sh 8 tar jdk
+sudo mv ../jdk1.8.0_172 ./
 sudo ln -s /opt/java/jdk1.8.0_172 current
 sudo chown -R wso2:wso2 /opt/java
 sudo su - wso2

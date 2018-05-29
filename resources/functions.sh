@@ -50,5 +50,6 @@ echo "resources home = $1"
     sed -i "s,{{REVERSE_PROXY_ENABLED}},$REVERSE_PROXY_ENABLED,g" $FILE
     sed -i "s,{{APISTORE_CONTEXT}},$APISTORE_CONTEXT,g" $FILE
     sed -i "s,{{CARBON_OFFSET}},$CARBON_OFFSET,g" $FILE
+    sed -i "s,{{APIPUBLISHER_CONTEXT}},$APIPUBLISHER_CONTEXT,g" $FILE
     done
 }
