@@ -28,9 +28,9 @@ vi ~/.bash_profile
 source ~/.bash_profile
 ### wum init , wum add , wum update
 
-## Criar script de environment (agibank-dev-env.sh)
+## Criar script de environment (meucliente-dev-env.sh)
 
 ## Criar diretório com o alias /opt/wso2/wso2apim 
 
 ## Rodar o script de instalacao
-## /opt/wso2/install/wso2-install/resources/setup-apim-2.2.0-publisher.sh /opt/wso2/install/agibank-dev-env.sh
+## /opt/wso2/install/wso2-install/resources/setup-apim-2.2.0-gw.sh /opt/wso2/install/meucliente-dev-env.sh
