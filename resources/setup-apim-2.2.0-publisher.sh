@@ -59,8 +59,13 @@ cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
 
 echo "apagando arquivos desnecessários para o publisher"
 rm $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
-rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/* 
-rm -rf $CARBON_HOME/repository/deployment/server/webapps/*
+rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/store*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#store*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/throttle#data*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#identity#consent-mgt*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/oauth2*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/client-registration*
+rm -rf $CARBON_HOME/repository/deployment/server/webapps/client-registration*
 
 if [ $1 = "mysql57" ]
 then
