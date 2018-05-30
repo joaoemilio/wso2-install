@@ -35,7 +35,6 @@ cp $CARBON_HOME/repository/conf/carbon.xml $CARBON_HOME/repository/conf/carbon.x
 #cp $CARBON_HOME/repository/conf/registry.xml $CARBON_HOME/repository/conf/registry.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/user-mgt.xml $CARBON_HOME/repository/conf/user-mgt.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/identity.xml.orig.$_DATAHORA
-cp $CARBON_HOME/repository/conf/api-manager.xml $CARBON_HOME/repository/conf/api-manager.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/datasources/master-datasources.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/datasources/analytics-datasources.xml $CARBON_HOME/repository/conf/datasources/analytics-datasources.xml.orig.$_DATAHORA
 cp $CARBON_HOME/repository/conf/datasources/stats-datasources.xml $CARBON_HOME/repository/conf/datasources/analytics-datasources.xml.orig.$_DATAHORA
@@ -45,7 +44,6 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon.xml $CARBON_HOME/repository/con
 #cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/registry.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/user-mgt.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/identity.xml
-cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager.xml $CARBON_HOME/repository/conf/api-manager.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/stats-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/stats-datasources.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/analytics-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/analytics-datasources.xml
