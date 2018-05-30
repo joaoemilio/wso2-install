@@ -2,7 +2,7 @@ function replaceVars( ) {
 
 echo "resources home = $1"
     cd $1
-    find ./apim -type f | while read FILE
+    find ./apim ./apim-analytics -type f | while read FILE
     do
     echo "atualizando arquivo $FILE"
     sed -i "s,{{DB_MAX_ACTIVE}},$DB_MAX_ACTIVE,g" $FILE
