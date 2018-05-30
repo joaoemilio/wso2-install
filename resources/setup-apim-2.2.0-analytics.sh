@@ -47,6 +47,7 @@ cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/identity.xml $CARBON_HOME/rep
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/master-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/stats-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/stats-datasources.xml
 cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/analytics-datasources-$DB.xml $CARBON_HOME/repository/conf/datasources/analytics-datasources.xml
+cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
 
 echo "apagando arquivos desnecessários para o analytics"
 
