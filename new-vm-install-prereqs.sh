@@ -22,9 +22,9 @@ sudo chown -R wso2:wso2 /opt/java
 sudo su - wso2
 cd /opt/wso2
 ln -s wso2am-2.2.0 wso2apim 
-tar -xvzf ./wso2-install/files/wum-2.0-linux-x64.tar.gz
+tar -xvzf ./install/wso2-install/files/wum-2.0-linux-x64.tar.gz
 ### EDITAR BASH_PROFILE
-vi ~/.bash_profile
+cat ./install/wso2-install/resources/centos7/wso2_bash_profile > ~/.bash_profile
 source ~/.bash_profile
 ### wum init , wum add , wum update
 
