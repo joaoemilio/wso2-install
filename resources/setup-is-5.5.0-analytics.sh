@@ -29,6 +29,7 @@ mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 echo "descompactando binario de instalacao"
 cd /opt/wso2/
 unzip -q $WSO2AM_INSTALL_PATH
+ln -s $CARBON_HOME wso2is-analytics 
 
 echo "backup dos arquivos de configuracao original"
 cp $CARBON_HOME/repository/conf/carbon.xml $CARBON_HOME/repository/conf/carbon.xml.orig.$_DATAHORA
