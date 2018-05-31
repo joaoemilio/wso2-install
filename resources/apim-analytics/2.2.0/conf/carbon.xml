@@ -44,13 +44,15 @@
        This is will become part of the End Point Reference of the
        services deployed on this server instance.
     -->
+<!--
     <HostName>{{WSO2AM_ANALYTICS_HOSTNAME}}</HostName>
-
+-->
     <!--
     Host name to be used for the Carbon management console
     -->
+<!--
     <MgtHostName>{{WSO2AM_ANALYTICS_HOSTNAME}}</MgtHostName>
-
+-->
     <!--
         The URL of the back end server. This is where the admin services are hosted and
         will be used by the clients in the front end server.
