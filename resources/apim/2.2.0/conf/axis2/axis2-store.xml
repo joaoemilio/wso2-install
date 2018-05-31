@@ -514,7 +514,7 @@
                 <Password>wso2carbon</Password>
             </TrustStore>
         </parameter-->
-        <!--<parameter name="HostnameVerifier">DefaultAndLocalhost</parameter>-->
+        <parameter name="HostnameVerifier">{{SSL_HOSTNAME_VERIFIER}}</parameter>
             <!--supports Strict|AllowAll|DefaultAndLocalhost or the default if none specified -->
     <!--/transportSender-->
 
@@ -556,7 +556,7 @@
             <filePath>repository/resources/security/sslprofiles.xml</filePath>
             <fileReadInterval>600000</fileReadInterval>
         </parameter>
-        <!--<parameter name="HostnameVerifier">DefaultAndLocalhost</parameter>-->
+        <parameter name="HostnameVerifier">{{SSL_HOSTNAME_VERIFIER}}</parameter>
             <!--supports Strict|AllowAll|DefaultAndLocalhost or the default if none specified -->
     </transportSender>
 
