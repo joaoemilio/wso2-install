@@ -8,10 +8,10 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>{{WSO2AM_STAT_DB_JDBC_URL}}</url>
-                    <username>{{WSO2AM_STAT_DB_USERNAME}}</username>
-                    <password>{{WSO2AM_STAT_DB_PASSWORD}}</password>
-                    <driverClassName>{{WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME}}</driverClassName>
+                    <url>{{WSO2IS_STAT_DB_JDBC_URL}}</url>
+                    <username>{{WSO2IS_STAT_DB_USERNAME}}</username>
+                    <password>{{WSO2IS_STAT_DB_PASSWORD}}</password>
+                    <driverClassName>{{WSO2IS_STAT_DB_JDBC_DRIVER_CLASS_NAME}}</driverClassName>
                     <maxActive>{{DB_MAX_ACTIVE}}</maxActive>
                     <maxWait>60000</maxWait>
                     <testOnBorrow>true</testOnBorrow>
