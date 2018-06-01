@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventPublisher
+  name="IsAnalytics-Publisher-wso2event-AuthenticationData"
+  statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+  <from streamName="org.wso2.is.analytics.stream.OverallAuthentication" version="1.0.0"/>
+  <mapping customMapping="disable" type="wso2event"/>
+  <to eventAdapterType="wso2event">
+    <property name="username">admin</property>
+    <property name="protocol">thrift</property>
+    <property name="publishingMode">non-blocking</property>
+    <property name="publishTimeout">0</property>
+    <property name="receiverURL">{{IS_ANALYTICS_SERVER_URL}}</property>
+    <property name="authenticatorURL">{{IS_ANALYTICS_API_URL}}</property>
+    <property encrypted="true" name="password">eyJjIjoiZDZrNTVuUUtNaFZodDJXZkloRUxwTGpJbUMzWVVNd3BMMGNNWVMyZkRSZWpmZndVa1Rpa1VDUzkxNDh1a2RWeFh3eGhCcy9WRTNFZlJBSlMzR3RUWFUrTUh3cWEybXBZdTVhRjlwV2RLajEwaDdqM3g1NGFnLzlRdUg4OTkwUnRrd0hlbW03d2wwZU5IOWZMdTNkTEhRbHoyQ3YxcVlzL0lzNmRZZndRUlowWUFUaDdXMVlOakw5a3U0OVZMdmdaU0dVQVhCaXBCVm5vMUhyYUhOc1RFN0paazJucWpwclRtNWEvTERLcWZ1Q0lWcy9vc0I0M2dmdjdsL2pOOHZaUjdTekhkNXdObFhrcmJidFl4Tlhoa1JoT3pyQU1mRGI3N1RrV2VvbVM2b056WXZFbUk0UnY2S1hTcERmc3FMNVlRdm9aOFRJNmNzZXJIMW5ZTkxpeDJ3XHUwMDNkXHUwMDNkIiwidCI6IlJTQS9FQ0IvT0FFUHdpdGhTSEExYW5kTUdGMVBhZGRpbmciLCJ0cCI6IjUwMUZDMTQzMkQ4NzE1NURDNDMxMzgyQUVCODQzRUQ1NThBRDYxQjEiLCJ0cGQiOiJTSEEtMSJ9</property>
+  </to>
+</eventPublisher>
