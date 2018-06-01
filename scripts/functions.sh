@@ -4,23 +4,23 @@ function bla() {
     echo "bla bla bla"
 }
 
-function getCarbonHomeByProduct( ) {
+function setCarbonHomeByProduct( ) {
 
     echo "entrou no getCarbonHomeByProduct $1"
     if [ "$1" = "is-analytics" ]; then
-        echo "/opt/wso2/wso2is-analytics";
+        CARBON_HOME="/opt/wso2/wso2is-analytics";
     fi
     if [ "$1" = "am-analytics" ]; then
-        echo "/opt/wso2/wso2am-analytics";
+        CARBON_HOME="/opt/wso2/wso2am-analytics";
     fi
     if [ "$1" = "apim" ]; then
-        echo "/opt/wso2/wso2apim";
+        CARBON_HOME="/opt/wso2/wso2apim";
     fi
     if [ "$1" = "is-as-km" ]; then
-        echo "/opt/wso2/wso2is";
+        CARBON_HOME="/opt/wso2/wso2is";
     fi
     if [ "$1" = "is" ]; then
-        echo "/opt/wso2/wso2is";
+        CARBON_HOME="/opt/wso2/wso2is";
     fi
 }
 

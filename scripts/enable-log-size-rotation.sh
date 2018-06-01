@@ -11,8 +11,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $1
 source $DIR/functions.sh
 
-getCarbonHomeByProduct
-CARBON_HOME=`getCarbonHomeByProduct $2`
+setCarbonHomeByProduct $2
 PRODUCT=$2
 VERSION=$3
 
