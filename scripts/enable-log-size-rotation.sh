@@ -12,7 +12,7 @@ bla
 
 getCarbonHomeByProduct
 echo "depois de chamar"
-CARBON_HOME=getCarbonHomeByProduct $2 
+CARBON_HOME=`getCarbonHomeByProduct $2`
 PRODUCT=$2
 VERSION=$3
 
