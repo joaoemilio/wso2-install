@@ -7,19 +7,19 @@ function bla() {
 function getCarbonHomeByProduct( ) {
 
     echo "entrou no getCarbonHomeByProduct $1"
-    if [ "$1" -eq "is-analytics" ]; then
+    if [ "$1" = "is-analytics" ]; then
         echo "/opt/wso2/wso2is-analytics";
     fi
-    if [ "$1" -eq "am-analytics" ]; then
+    if [ "$1" = "am-analytics" ]; then
         echo "/opt/wso2/wso2am-analytics";
     fi
-    if [ "$1" -eq "apim" ]; then
+    if [ "$1" = "apim" ]; then
         echo "/opt/wso2/wso2apim";
     fi
-    if [ "$1" -eq "is-as-km" ]; then
+    if [ "$1" = "is-as-km" ]; then
         echo "/opt/wso2/wso2is";
     fi
-    if [ "$1" -eq "is" ]; then
+    if [ "$1" = "is" ]; then
         echo "/opt/wso2/wso2is";
     fi
 }
