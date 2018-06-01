@@ -1,3 +1,7 @@
+function bla() {
+    echo "bla bla bla"
+}
+
 function replaceVars( ) {
 
 echo "resources home = $1"
