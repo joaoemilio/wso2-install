@@ -37,7 +37,7 @@ fi
 if [ -z "${LOG_ROTATION_TYPE}" ]; then
     echo "A variavel LOG_ROTATION_TYPE não foi configurada. Utilizando default 'daily'"
     LOG_ROTATION_TYPE="daily"
-elif 
+else
     if [ -z "${CARBON_LOGFILE_MAXFILESIZE}" ]; then
         echo "A variavel CARBON_LOGFILE_MAXFILESIZE não foi configurada corretamente"
         exit
