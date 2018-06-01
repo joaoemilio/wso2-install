@@ -1,8 +1,12 @@
+#!/bin/bash 
+
 function bla() {
     echo "bla bla bla"
 }
 
 function getCarbonHomeByProduct( ) {
+
+    echo "entrou no getCarbonHomeByProduct $1"
     if [ "$1" -eq "is-analytics" ]; then
         echo "/opt/wso2/wso2is-analytics";
     fi
