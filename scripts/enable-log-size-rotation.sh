@@ -4,7 +4,7 @@ function printHelp() {
     echo "sh enable-log-size-rotation.sh <script com variaveis de ambiente> <apim|is|is-as-km|am-analytics|is-analytics> <2.2.0|5.5.0>"
 }
 
-RESOURCES_HOME="/opt/wso2/install/wso2-install/resources/"
+RESOURCES_HOME="/opt/wso2/install/wso2-install/resources"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # carregar variaveis de ambiente e functions utilitarias
@@ -48,12 +48,12 @@ else
 fi
 
 echo "$PRODUCT instalado em: $CARBON_HOME"
-cp -v $CARBON_HOME/repository/conf/log4j.properties  $CARBON_HOME/repository/conf/log4j.properties.orig
+cp -v $CARBON_HOME/repository/conf/log4j.properties $CARBON_HOME/repository/conf/log4j.properties.orig
 
 FILE=$RESOURCES_HOME/$PRODUCT/$VERSION/conf/log4j-$LOG_ROTATION_TYPE-rotation.properties
-echo $FILE
 cp -v $FILE $CARBON_HOME/repository/conf/log4j.properties
 
+FILE=$CARBON_HOME/repository/conf/log4j.properties
 if [ "$LOG_ROTATION_TYPE" = "size" ]; then
     sed -i "s,{{CARBON_LOGFILE_MAXFILESIZE}},$CARBON_LOGFILE_MAXFILESIZE,g" $FILE
     sed -i "s,{{CARBON_LOGFILE_MAXBACKUPINDEX}},$CARBON_LOGFILE_MAXBACKUPINDEX,g" $FILE
