@@ -48,9 +48,11 @@ else
     fi 
 fi
 
+echo "$PRODUCT instalado em: $CARBON_HOME"
 cp -v $CARBON_HOME/repository/conf/log4j.properties  $CARBON_HOME/repository/conf/log4j.properties.orig
 
 FILE=$RESOURCES_HOME/$PRODUCT/$VERSION/conf/log4j-$LOG_ROTATION_TYPE-rotation.properties
+echo $FILE
 cp -v $FILE $CARBON_HOME/repository/conf/log4j.properties
 
 if [ "$LOG_ROTATION_TYPE" = "size" ]; then
