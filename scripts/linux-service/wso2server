@@ -1,5 +1,5 @@
 #! /bin/sh
-# chkconfig: 345 99 01
+# chkconfig: - 99 10
 # description: wso2 server service script
 export JAVA_HOME="/opt/java/current"
  

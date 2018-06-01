@@ -1,4 +1,5 @@
 #! /bin/sh
+# chkconfig: - 99 10
 export JAVA_HOME="/opt/java/current"
  
 startcmd='/opt/wso2/wso2apim/bin/wso2server.sh -Dprofile=traffic-manager start > /dev/null &'

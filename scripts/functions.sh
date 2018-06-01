@@ -10,7 +10,7 @@ function setCarbonHomeByProduct( ) {
     if [ "$1" = "is-analytics" ]; then
         CARBON_HOME="/opt/wso2/wso2is-analytics";
     fi
-    if [ "$1" = "am-analytics" ]; then
+    if [ "$1" = "apim-analytics" ]; then
         CARBON_HOME="/opt/wso2/wso2am-analytics";
     fi
     if [ "$1" = "apim" ]; then
