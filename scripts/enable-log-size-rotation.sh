@@ -7,7 +7,7 @@ function printHelp() {
 # chamar o script de variaveis do ambiente do cliente
 source $1
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. $DIR/functions.sh --source-only
+source $DIR/functions.sh
 
 CARBON_HOME=getCarbonHomeByProduct $2 
 PRODUCT=$2
