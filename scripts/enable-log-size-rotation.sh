@@ -1,8 +1,13 @@
 #!/bin/bash
 
+function printHelp() {
+    echo "sh enable-log-size-rotation.sh <script com variaveis de ambiente> <apim|is|is-as-km|am-analytics|is-analytics> <2.2.0|5.5.0>"
+}
+
 # chamar o script de variaveis do ambiente do cliente
 source $1
-source $RESOURCES_HOME/functions.sh 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/functions.sh 
 
 CARBON_HOME=getCarbonHomeByProduct $2 
 PRODUCT=$2
@@ -25,7 +30,3 @@ if [ -z "${CARBON_HOME}" ]; then
     printHelp 
     exit 
 fi
-
-function printHelp() {
-    echo "sh enable-log-size-rotation.sh <script com variaveis de ambiente> <apim|is|is-as-km|am-analytics|is-analytics> <2.2.0|5.5.0>
-}
