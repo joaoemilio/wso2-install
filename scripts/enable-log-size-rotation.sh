@@ -10,6 +10,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/functions.sh
 bla 
 
+getCarbonHomeByProduct
+echo "depois de chamar"
 CARBON_HOME=getCarbonHomeByProduct $2 
 PRODUCT=$2
 VERSION=$3
