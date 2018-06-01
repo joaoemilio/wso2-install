@@ -4,7 +4,7 @@ function printHelp() {
     echo "sh enable-log-size-rotation.sh <script com variaveis de ambiente> <apim|is|is-as-km|am-analytics|is-analytics> <2.2.0|5.5.0>"
 }
 
-RESROUCES_HOME="/opt/wso2/install/wso2-install/resources/"
+RESOURCES_HOME="/opt/wso2/install/wso2-install/resources/"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # carregar variaveis de ambiente e functions utilitarias
