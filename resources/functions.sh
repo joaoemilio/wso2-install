@@ -90,3 +90,21 @@ echo "resources home = $1"
     sed -i "s,{{WSO2IS_ANALYTICS_EVENT_DB_JDBC_DRIVER_CLASS_NAME}},$WSO2IS_ANALYTICS_EVENT_DB_JDBC_DRIVER_CLASS_NAME,g" $FILE
 done
 }
+
+function getCarbonHomeByProduct() {
+    if [ "$1" -eq "is-analytics" ]; then
+        echo "/opt/wso2/wso2is-analytics";
+    fi
+    if [ "$1" -eq "am-analytics" ]; then
+        echo "/opt/wso2/wso2am-analytics";
+    fi
+    if [ "$1" -eq "apim" ]; then
+        echo "/opt/wso2/wso2apim";
+    fi
+    if [ "$1" -eq "is-as-km" ]; then
+        echo "/opt/wso2/wso2is";
+    fi
+    if [ "$1" -eq "is" ]; then
+        echo "/opt/wso2/wso2is";
+    fi
+}
