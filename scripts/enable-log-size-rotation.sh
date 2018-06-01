@@ -58,3 +58,5 @@ if [ "$LOG_ROTATION_TYPE" = "size" ]; then
     sed -i "s,{{CARBON_LOGFILE_MAXFILESIZE}},$CARBON_LOGFILE_MAXFILESIZE,g" $FILE
     sed -i "s,{{CARBON_LOGFILE_MAXBACKUPINDEX}},$CARBON_LOGFILE_MAXBACKUPINDEX,g" $FILE
 fi
+
+echo "Você precisar reiniciar o WSO2 $PRODUCT para que a configuração faça efeito"
