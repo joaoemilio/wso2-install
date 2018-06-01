@@ -27,6 +27,12 @@ tar -xvzf ./install/wso2-install/files/wum-2.0-linux-x64.tar.gz
 cat ./install/wso2-install/resources/centos7/wso2_bash_profile > ~/.bash_profile
 source ~/.bash_profile
 ### wum init , wum add , wum update
+wum init
+wum add wso2am-2.2.0
+#wum add wso2is-km-5.5.0
+#wum add wso2am-analytics-2.2.0
+#wum add wso2is-analytics-5.5.0
+wum update wso2am-2.2.0
 
 ## Criar script de environment (meucliente-dev-env.sh)
 

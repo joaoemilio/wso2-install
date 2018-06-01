@@ -1,0 +1,24 @@
+#! /bin/sh
+export JAVA_HOME="/opt/java/current"
+ 
+startcmd='/opt/wso2/wso2apim/bin/wso2server.sh -Dprofile=api-store start > /dev/null &'
+restartcmd='/opt/wso2/wso2apim/bin/wso2server.sh -Dprofile=api-store restart > /dev/null &'
+stopcmd='/opt/wso2/wso2apim/bin/wso2server.sh stop > /dev/null &'
+ 
+case "$1" in
+start)
+   echo "Starting the WSO2 Server ..."
+   su -c "${startcmd}" wso2
+;;
+restart)
+   echo "Re-starting the WSO2 Server ..."
+   su -c "${restartcmd}" wso2 
+;;
+stop)
+   echo "Stopping the WSO2 Server ..."
+   su -c "${stopcmd}" wso2 
+;;
+*)
+   echo "Usage: $0 {start|stop|restart}"
+exit 1
+esac
