@@ -2,6 +2,7 @@
 PRODUCT="apim"
 VERSION="2.2.0"
 _DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+_ENV_VARS_SCRIPT=""
 
 function install_product() {
 	source $_DIR/$VERSION/install.sh
@@ -9,6 +10,11 @@ function install_product() {
 }
 
 product_main_menu(){
+	if [ "$1" == "" ]; then
+		print_help
+		exit 0
+	fi
+	_ENV_VARS_SCRIPT=$1
 	clear
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
 	echo " Escolha o Pattern"
@@ -26,21 +32,19 @@ function pattern3() {
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
 	echo " Escolha o Product Profile"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo "[1] All In One"
-	echo "[2] API Publisher / Admin"
-	echo "[3] API Store"
-	echo "[4] Gateway"
-	echo "[5] Traffic Manager"
+	echo "[1] API Publisher / Admin"
+	echo "[2] API Store"
+	echo "[3] Gateway"
+	echo "[4] Traffic Manager"
 	echo "[0] Sair"
 	local choice
 
 	read -p " " choice
 	case $choice in
-		1) echo "All In One (pending)" ;;
-		2) echo "API Publisher (pending)"; install_product $PRODUCT $VERSION "publisher";;
-		3) echo "API Store (pending)" ;;
-		4) echo "Gateway (pending)" ;;
-		5) echo "Traffic Manager" ;;
+		1) echo "API Publisher (pending)"; install_product $PRODUCT $VERSION "publisher";;
+		2) echo "API Store (pending)" ;;
+		3) echo "Gateway (pending)" ;;
+		4) echo "Traffic Manager" ;;
 		0) exit 0;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
