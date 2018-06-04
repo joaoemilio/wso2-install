@@ -24,6 +24,22 @@ function setCarbonHomeByProduct( ) {
     fi
 }
 
+function pre_install() {
+    echo "(re)criando diretorio com os artefatos /tmp/resources"
+    rm -rf $RESOURCES_HOME
+    mkdir -p $RESOURCES_HOME
+    cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
+
+    echo "substituindo variaveis nos arquivos configuracao template"
+    source $WSO2_INSTALL_PATH/scripts/functions.sh
+    replaceVars $RESOURCES_HOME 
+
+    echo "(re)criando diretorio com os artefatos /tmp/resources"
+    rm -rf $RESOURCES_HOME
+    mkdir -p $RESOURCES_HOME
+    cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
+}
+
 function replaceVars( ) {
 
 echo "resources home = $1"
