@@ -31,7 +31,7 @@ function setup() {
 }
 
 function cleanup() {
-
+    echo "nada para apagar"
 }
 
 function postConfig() {
