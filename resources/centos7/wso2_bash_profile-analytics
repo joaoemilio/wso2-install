@@ -11,7 +11,7 @@ M2_HOME=/opt/wso2/maven
 JAVA_HOME=/opt/java/current
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:$WUM_HOME/bin:$M2_HOME/bin:$JAVA_HOME/bin
 
-export JVM_MEM_OPTS="-Xms2048m -Xmx2048m"
+export JVM_MEM_OPTS="-Xms4096m -Xmx4096m"
 export JAVA_OPTS="-Djava.util.prefs.systemRoot=/home/wso2/.java -Djava.util.prefs.userRoot=/home/wso2/.java/.userPrefs"
 
 export PATH
