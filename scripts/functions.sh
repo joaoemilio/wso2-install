@@ -26,6 +26,20 @@ function setCarbonHomeByProduct( ) {
 
 function pre_install() {
     source $1
+#!/bin/bash
+
+CARBON_HOME="/opt/wso2/wso2apim"
+APIM_HOME="/opt/wso2/wso2am-2.2.0"
+PRODUCT="apim"
+VERSION="2.2.0"
+RESOURCES_HOME="/tmp/resources"
+_DATAHORA=`date +"%y%m%d_%H%M%S"`
+# Essa variável contém o binário (.zip) que vai ser utilizado na instalação
+LATEST=`ls -ltr ~/.wum-wso2/products/wso2am/2.2.0/ | tail -n1 | awk '{print $NF}'`
+WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/$LATEST"
+echo "$WSO2AM_INSTALL_PATH"
+WSO2_INSTALL_PATH="/opt/wso2/install/wso2-install"
+
 
     echo "(re)criando diretorio com os artefatos /tmp/resources"
     rm -rf $RESOURCES_HOME
@@ -60,6 +74,7 @@ function replaceVars( ) {
     sed -i "s,{{DB_MAX_ACTIVE}},$DB_MAX_ACTIVE,g" $FILE
     sed -i "s,{{CARBON_HOSTNAME}},$CARBON_HOSTNAME,g" $FILE
     sed -i "s,{{CARBON_HOST}},$CARBON_HOST,g" $FILE
+    sed -i "s,{{CARBON_DNS}},$CARBON_DNS,g" $FILE
     sed -i "s,{{CARBON_MGT_HOSTNAME}},$CARBON_MGT_HOSTNAME,g" $FILE
     sed -i "s,{{WSO2AM_DB_JDBC_URL}},$WSO2AM_DB_JDBC_URL,g" $FILE
     sed -i "s,{{WSO2AM_DB_USERNAME}},$WSO2AM_DB_USERNAME,g" $FILE
