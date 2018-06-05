@@ -12,6 +12,15 @@ function install_apim() {
     echo "script do profile de apim a ser instalado: $2"
     source $DIR/$2.sh
 
+    echo "(re)criando diretorio com os artefatos /tmp/resources"
+    rm -rf $RESOURCES_HOME
+    mkdir -p $RESOURCES_HOME
+    cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
+
+    echo "substituindo variaveis nos arquivos configuracao template"
+    source $WSO2_INSTALL_PATH/resources/functions.sh
+    replaceVars $RESOURCES_HOME 
+
     echo "# removendo instalação anterior"
     mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 
