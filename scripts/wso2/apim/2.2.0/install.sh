@@ -14,7 +14,7 @@ function install_apim() {
 
     echo "substituindo variaveis nos arquivos configuracao template"
     source $WSO2_INSTALL_PATH/scripts/functions.sh
-    pre_install
+    pre_install $1
     echo "################"
     echo "################"
     echo "################"

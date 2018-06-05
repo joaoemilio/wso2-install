@@ -25,6 +25,8 @@ function setCarbonHomeByProduct( ) {
 }
 
 function pre_install() {
+    source $1
+
     echo "(re)criando diretorio com os artefatos /tmp/resources"
     rm -rf $RESOURCES_HOME
     mkdir -p $RESOURCES_HOME
