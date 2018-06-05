@@ -49,6 +49,7 @@ function replaceVars( ) {
     echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     echo "resources home = $1"
+    echo "CARBON_HOSTNAME: $CARBON_HOSTNAME"
     cd $1
     find ./apim ./apim-analytics ./is-as-km ./nginx ./centos7 ./is-analytics -type f | while read FILE
     do
