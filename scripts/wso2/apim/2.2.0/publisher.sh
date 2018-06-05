@@ -1,4 +1,7 @@
 function backup() {
+
+    source $1
+
     echo "# API MANAGER #"
     echo "backup dos arquivos de configuracao original"
     echo $_DATAHORA >> executions.txt 
@@ -15,6 +18,8 @@ function backup() {
 }
 
 function setup() {
+    source $1
+    
     echo "# substituindo arquivos de configuracao"
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon-publisher.xml $CARBON_HOME/repository/conf/carbon.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/
@@ -31,6 +36,8 @@ function setup() {
 }
 
 function cleanup() {
+    source $1
+
     echo "apagando arquivos desnecessários para o publisher"
     rm $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
     rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/store*
@@ -43,6 +50,8 @@ function cleanup() {
 }
 
 function postConfig() {
+    source $1
+    
     if [ "$1" = "mysql57" ]
     then
         echo "atualizando scripts mysql-5.7"

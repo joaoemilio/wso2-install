@@ -27,10 +27,10 @@ function install_apim() {
     cd /opt/wso2/
     unzip -q $WSO2AM_INSTALL_PATH
 
-    backup
-    setup
-    cleanup
-    postConfig
+    backup $1
+    setup $1
+    cleanup $1
+    postConfig $1
 }
 
 
