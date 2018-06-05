@@ -16,7 +16,7 @@ function backup() {
 
 function setup() {
     echo "# substituindo arquivos de configuracao"
-    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon.xml $CARBON_HOME/repository/conf/
+    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon-publisher.xml $CARBON_HOME/repository/conf/carbon.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager-publisher.xml $CARBON_HOME/repository/conf/api-manager.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/
