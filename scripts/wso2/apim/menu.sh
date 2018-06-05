@@ -4,12 +4,6 @@ VERSION="2.2.0"
 _DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 _ENV_VARS_SCRIPT=""
 
-function install_product() {
-	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
-	source $_DIR/$VERSION/install.sh
-	install_$PRODUCT
-}
-
 product_main_menu(){
 	if [ "$1" == "" ]; then
 		print_help
@@ -40,6 +34,9 @@ function pattern3() {
 	echo "[4] Traffic Manager"
 	echo "[0] Sair"
 	local choice
+
+	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
+	source $_DIR/$VERSION/install.sh
 
 	read -p " " choice
 	case $choice in
