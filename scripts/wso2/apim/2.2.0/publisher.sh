@@ -39,13 +39,13 @@ function cleanup() {
     source $1
 
     echo "apagando arquivos desnecessários para o publisher"
-    rm -v $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
-    rm -rfv $CARBON_HOME/repository/deployment/server/jaggeryapps/store*
-    rm -rfv $CARBON_HOME/repository/deployment/server/webapps/api#am#store*
-    rm -rfv $CARBON_HOME/repository/deployment/server/webapps/throttle#data*
-    rm -rfv $CARBON_HOME/repository/deployment/server/webapps/api#identity#consent-mgt*
-    rm -rfv $CARBON_HOME/repository/deployment/server/webapps/oauth2*
-    rm -rfv $CARBON_HOME/repository/deployment/server/webapps/client-registration*
+    rm $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
+    rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/store*
+    rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#am#store*
+    rm -rf $CARBON_HOME/repository/deployment/server/webapps/throttle#data*
+    rm -rf $CARBON_HOME/repository/deployment/server/webapps/api#identity#consent-mgt*
+    rm -rf $CARBON_HOME/repository/deployment/server/webapps/oauth2*
+    rm -rf $CARBON_HOME/repository/deployment/server/webapps/client-registration*
 }
 
 function postConfig() {
