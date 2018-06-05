@@ -26,6 +26,7 @@ show_main_menu() {
 	echo " Escolha o Produto WSO2"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo "[1] WSO2 API Manager 2.2.0"
+	echo "[2] WSO2 Identity Server as Key Manager 5.5.0"
 	echo "[0] Sair"
 }
 
