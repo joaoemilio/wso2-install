@@ -12,7 +12,7 @@ function setup() {
     source $1
     
     echo "substituindo arquivos de configuracao"
-    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon.xml $CARBON_HOME/repository/conf/
+    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon-gw.xml $CARBON_HOME/repository/conf/carbon.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry-gw.xml $CARBON_HOME/repository/conf/registry.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager-gw.xml $CARBON_HOME/repository/conf/api-manager.xml  
 }

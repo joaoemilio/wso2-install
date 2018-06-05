@@ -18,8 +18,8 @@ function setup() {
     source $1
     
     echo "substituindo arquivos de configuracao"
-    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon-store.xml $CARBON_HOME/repository/conf/
-    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/
+    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon-store.xml $CARBON_HOME/repository/conf/carbon.xml
+    cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry-store.xml $CARBON_HOME/repository/conf/registry.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/api-manager-store.xml $CARBON_HOME/repository/conf/api-manager.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOME/repository/conf/tomcat/
