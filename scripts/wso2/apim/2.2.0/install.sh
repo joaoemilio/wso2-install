@@ -18,7 +18,7 @@ function install_apim() {
     cp -av $WSO2_INSTALL_PATH/resources/* $RESOURCES_HOME/
 
     echo "substituindo variaveis nos arquivos configuracao template"
-    source $WSO2_INSTALL_PATH/resources/functions.sh
+    source $WSO2_INSTALL_PATH/resources/scripts/functions.sh
     replaceVars $RESOURCES_HOME 
 
     echo "# removendo instalação anterior"
