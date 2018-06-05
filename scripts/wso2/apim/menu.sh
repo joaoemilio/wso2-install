@@ -15,6 +15,7 @@ product_main_menu(){
 		exit 0
 	fi
 	_ENV_VARS_SCRIPT=$1
+	echo "script de variaveis de ambiente do cliente: $_ENV_VARS_SCRIPT" 
 	clear
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
 	echo " Escolha o Pattern"
@@ -41,7 +42,7 @@ function pattern3() {
 
 	read -p " " choice
 	case $choice in
-		1) echo "API Publisher (pending)"; install_product $PRODUCT $VERSION "publisher";;
+		1) echo "API Publisher (pending)"; install_$PRODUCT $_ENV_VARS_SCRIPT "publisher";;
 		2) echo "API Store (pending)" ;;
 		3) echo "Gateway (pending)" ;;
 		4) echo "Traffic Manager" ;;
