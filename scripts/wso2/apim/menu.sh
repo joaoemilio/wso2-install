@@ -5,6 +5,7 @@ _DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 _ENV_VARS_SCRIPT=""
 
 function install_product() {
+	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
 	source $_DIR/$VERSION/install.sh
 	install_$PRODUCT
 }
