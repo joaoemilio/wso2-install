@@ -52,7 +52,7 @@
 
     "reverseProxy" : {
         "enabled" : {{REVERSE_PROXY_ENABLED}},    // values true , false , "auto" - will look for  X-Forwarded-* headers
-        "host" : "{{APIPUBLISHER_URL}}", // If reverse proxy do not have a domain name use IP
+        "host" : "{{APIPUBLISHER_DNS}}", // If reverse proxy do not have a domain name use IP
         "context":"{{APIPUBLISHER_CONTEXT}}",
         "regContext":"" // Use only if different path is used for registry
     },

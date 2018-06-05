@@ -63,7 +63,7 @@
   
     "reverseProxy" : {
       "enabled" : {{REVERSE_PROXY_ENABLED}},    // values true , false , "auto" - will look for  X-Forwarded-* headers
-      "host" : "{{APISTORE_URL}}", // If reverse proxy do not have a domain name use IP
+      "host" : "{{APISTORE_DNS}}", // If reverse proxy do not have a domain name use IP
       "context":"{{APISTORE_CONTEXT}}",
       "regContext":"" // Use only if different path is used for registry
     },
