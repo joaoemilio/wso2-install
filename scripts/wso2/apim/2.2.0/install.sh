@@ -10,7 +10,7 @@ function install_apim() {
     source $1
 
     echo "script do profile de apim a ser instalado: $2"
-    source $2.sh
+    source $DIR/$2.sh
 
     echo "# removendo instalação anterior"
     mv $APIM_HOME $CARBON_HOME.$_DATAHORA
