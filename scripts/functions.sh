@@ -34,7 +34,7 @@ function pre_install() {
 
     echo "substituindo variaveis nos arquivos configuracao template"
     source $WSO2_INSTALL_PATH/scripts/functions.sh
-    replaceVars $RESOURCES_HOME 
+    replaceVars $RESOURCES_HOME $1
 
     echo "(re)criando diretorio com os artefatos /tmp/resources"
     rm -rf $RESOURCES_HOME
@@ -43,19 +43,23 @@ function pre_install() {
 }
 
 function replaceVars( ) {
+    echo "carregar variaveis novamente: $2"
+    source $2
 
     echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     echo "resources home = $1"
-    echo "CARBON_HOSTNAME: $CARBON_HOSTNAME"
+    echo "CARBON_HOST: $CARBON_HOST"
+    echo "APIPUBLISHER_DNS: $APIPUBLISHER_DNS"
     cd $1
     find ./apim ./apim-analytics ./is-as-km ./nginx ./centos7 ./is-analytics -type f | while read FILE
     do
     echo "atualizando arquivo $FILE"
     sed -i "s,{{DB_MAX_ACTIVE}},$DB_MAX_ACTIVE,g" $FILE
     sed -i "s,{{CARBON_HOSTNAME}},$CARBON_HOSTNAME,g" $FILE
+    sed -i "s,{{CARBON_HOST}},$CARBON_HOST,g" $FILE
     sed -i "s,{{CARBON_MGT_HOSTNAME}},$CARBON_MGT_HOSTNAME,g" $FILE
     sed -i "s,{{WSO2AM_DB_JDBC_URL}},$WSO2AM_DB_JDBC_URL,g" $FILE
     sed -i "s,{{WSO2AM_DB_USERNAME}},$WSO2AM_DB_USERNAME,g" $FILE
