@@ -543,7 +543,7 @@
         </DataPublisher>
         <PolicyDeployer>
             <Enabled>true</Enabled>
-            <ServiceURL>https://{{TRAFFIC_MANAGER_URL}}services/</ServiceURL>
+            <ServiceURL>https://{{TM_DNS}}services/</ServiceURL>
             <Username>${admin.username}</Username>
             <Password>${admin.password}</Password>
         </PolicyDeployer>
