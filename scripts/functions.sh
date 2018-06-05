@@ -26,19 +26,7 @@ function setCarbonHomeByProduct( ) {
 
 function pre_install() {
     source $1
-
-    CARBON_HOME="/opt/wso2/wso2apim"
-    APIM_HOME="/opt/wso2/wso2am-2.2.0"
-    PRODUCT="apim"
-    VERSION="2.2.0"
-    RESOURCES_HOME="/tmp/resources"
-    _DATAHORA=`date +"%y%m%d_%H%M%S"`
-    # Essa variável contém o binário (.zip) que vai ser utilizado na instalação
-    LATEST=`ls -ltr ~/.wum-wso2/products/wso2am/2.2.0/ | tail -n1 | awk '{print $NF}'`
-    WSO2AM_INSTALL_PATH="/home/wso2/.wum-wso2/products/wso2am/2.2.0/$LATEST"
-    echo "$WSO2AM_INSTALL_PATH"
-    WSO2_INSTALL_PATH="/opt/wso2/install/wso2-install"
-
+    source $2
 
     echo "(re)criando diretorio com os artefatos /tmp/resources"
     rm -rf $RESOURCES_HOME
@@ -54,13 +42,6 @@ function replaceVars( ) {
     echo "carregar variaveis novamente: $2"
     source $2
 
-    echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    echo "resources home = $1"
-    echo "CARBON_HOST: $CARBON_HOST"
-    echo "APIPUBLISHER_DNS: $APIPUBLISHER_DNS"
     cd $1
     find ./apim ./apim-analytics ./is-as-km ./nginx ./centos7 ./is-analytics -type f | while read FILE
     do

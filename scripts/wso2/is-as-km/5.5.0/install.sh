@@ -57,7 +57,7 @@ function install_is-as-km() {
 
     echo "substituindo variaveis nos arquivos configuracao template"
     source $WSO2_INSTALL_PATH/scripts/functions.sh
-    pre_install $1
+    pre_install $1 $DIR/env-vars.sh
 
     echo "# removendo instalação anterior"
     mv $APIM_HOME $CARBON_HOME.$_DATAHORA
