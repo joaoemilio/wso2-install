@@ -42,7 +42,7 @@ function cleanup() {
 function postConfig() {
     source $1
 
-    if [ "$1" = "mysql57" ]
+    if [ "$2" = "mysql57" ]
     then
         echo "atualizando scripts mysql-5.7"
         mv -v $CARBON_HOME/dbscripts/mysql.sql $CARBON_HOME/dbscripts/mysql5.x.sql
