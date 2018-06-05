@@ -13,6 +13,7 @@ function backup() {
     cp $CARBON_HOME/repository/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/identity.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/embedded-ldap.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/thrift-authentication.xml.orig.$_DATAHORA    
+    mv $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
 }
 
 function setup() {
@@ -28,6 +29,7 @@ function setup() {
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/
     cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/tomcat/catalina-server.xml $CARBON_HOME/repository/conf/tomcat/catalina-server.xml
+    ln -s $SERVER_FILESYSTEM $CARBON_HOME/repository/deployment/server
 }
 
 function cleanup() {

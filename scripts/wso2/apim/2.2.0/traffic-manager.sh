@@ -12,6 +12,8 @@ function backup() {
     cp $CARBON_HOME/repository/conf/datasources/master-datasources.xml $CARBON_HOME/repository/conf/datasources/master-datasources.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/metrics-datasources.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/site.json.orig.$_DATAHORA
+    mv $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
+    
 }
 
 function setup() {
@@ -28,6 +30,8 @@ function setup() {
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/datasources/metrics-datasources.xml $CARBON_HOME/repository/conf/datasources/
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/store/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/store/site/conf/
     cp $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/
+    ln -s $SERVER_FILESYSTEM $CARBON_HOME/repository/deployment/server
+    
 }
 
 function cleanup() {
