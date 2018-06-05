@@ -40,10 +40,10 @@ function pattern3() {
 
 	read -p " " choice
 	case $choice in
-		1) echo "API Publisher (pending)"; install_$PRODUCT $_ENV_VARS_SCRIPT "publisher";;
-		2) echo "API Store (pending)" ;;
-		3) echo "Gateway (pending)" ;;
-		4) echo "Traffic Manager" ;;
+		1) install_$PRODUCT $_ENV_VARS_SCRIPT "publisher";;
+		2) install_$PRODUCT $_ENV_VARS_SCRIPT "store" ;;
+		3) install_$PRODUCT $_ENV_VARS_SCRIPT "gateway" ;;
+		4) install_$PRODUCT $_ENV_VARS_SCRIPT "traffic-manager" ;;
 		0) exit 0;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
