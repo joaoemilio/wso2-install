@@ -13,6 +13,7 @@ read_options(){
 	read -p " " choice
 	case $choice in
 		1) product_menu "apim" ;;
+		2) product_menu "is-as-km" ;;
 		0) exit 0;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
