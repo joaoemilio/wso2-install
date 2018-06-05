@@ -15,6 +15,10 @@ function install_apim() {
     echo "substituindo variaveis nos arquivos configuracao template"
     source $WSO2_INSTALL_PATH/scripts/functions.sh
     pre_install
+    echo "################"
+    echo "################"
+    echo "################"
+    echo "################"
 
     echo "# removendo instalação anterior"
     mv $APIM_HOME $CARBON_HOME.$_DATAHORA
