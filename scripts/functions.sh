@@ -109,6 +109,7 @@ function replaceVars( ) {
     sed -i  "s,{{WSO2AM_ANALYTICS_PORT}},$WSO2AM_ANALYTICS_PORT,g" $FILE
     sed -i  "s,{{WSO2AM_HOSTNAME}},$WSO2AM_HOSTNAME,g" $FILE
     sed -i  "s,{{APIGATEWAY_URL}},$APIGATEWAY_URL,g" $FILE
+    sed -i  "s,{{APIGATEWAY_DNS}},$APIGATEWAY_DNS,g" $FILE
     sed -i  "s,{{APIGATEWAY_SERVICES_URL}},$APIGATEWAY_SERVICES_URL,g" $FILE
     sed -i  "s,{{APISTORE_URL}},$APISTORE_URL,g" $FILE
     sed -i  "s,{{APISTORE_DNS}},$APISTORE_DNS,g" $FILE
@@ -124,6 +125,8 @@ function replaceVars( ) {
     sed -i "s,{{RECEIVER_URL_GROUP}},$RECEIVER_URL_GROUP,g" $FILE
     sed -i "s,{{AUTH_URL_GROUP}},$AUTH_URL_GROUP,g" $FILE
     sed -i "s,{{TRAFFIC_MANAGER}},$TRAFFIC_MANAGER,g" $FILE
+    sed -i "s,{{TM_DNS}},$TM_DNS,g" $FILE
+    sed -i "s,{{BROKER_LIST}},$BROKER_LIST,g" $FILE
     sed -i "s,{{AM_ANALYTICS_ENABLED}},$AM_ANALYTICS_ENABLED,g" $FILE
     sed -i "s,{{AM_ANALYTICS_API_URL}},$AM_ANALYTICS_API_URL,g" $FILE
     sed -i "s,{{AM_ANALYTICS_SERVER_URL}},$AM_ANALYTICS_SERVER_URL,g" $FILE
