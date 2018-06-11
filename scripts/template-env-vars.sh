@@ -1,0 +1,153 @@
+#!/bin/bash
+DB="mysql"
+DB_MAX_ACTIVE=20
+DB_MIN_ACTIVE=5
+DB_MAX_IDLE=5
+JDBC_HOST_PORT="mysql.aws.local:3306"
+JDBC_DRIVER_CLASS_NAME="com.mysql.jdbc.Driver"
+JDBC_DRIVER_PATH="$RESOURCES_HOME/mysql/mysql-connector-java-5.1.46.jar"
+
+#Esse vai ser o diretório compartilhando <CARBON_HOME>/repository/deployment/server entre os nodes do cluster
+SERVER_FILESYSTEM="/opt/wso2/shared/server"
+
+#### WSO2 IDENTITY SERVER (ACTING AS KEY MANAGER)
+IS_AS_KM_IP_ADDRESS="identity.template.org"
+IS_AS_KM_DNS="identity.template.org"
+
+#### WSO2 CARBON - COMMON CONFIGURATIONS
+CARBON_OFFSET="0"
+LOG_ROTATION_TYPE="size"
+CARBON_LOGFILE_MAXFILESIZE="500MB"
+CARBON_LOGFILE_MAXBACKUPINDEX="10"
+SSL_HOSTNAME_VERIFIER="AllowAll" #Strict|AllowAll|DefaultAndLocalhost
+
+CARBON_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2am_db?useSSL=false"
+CARBON_DB_USERNAME="wso2"
+CARBON_DB_PASSWORD="wso2carbon"
+CARBON_DB_JDBC_DRIVER_CLASS_NAME=$JDBC_DRIVER_CLASS_NAME
+
+WSO2UM_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2um_db?useSSL=false"
+WSO2UM_DB_USERNAME="wso2"
+WSO2UM_DB_PASSWORD="wso2carbon"
+WSO2UM_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+WSO2GOV_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2gov_db?useSSL=false"
+WSO2GOV_DB_USERNAME="wso2"
+WSO2GOV_DB_PASSWORD="wso2carbon"
+WSO2GOV_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+#### WSO2 API MANAGER - COMMON CONFIGURATIONS
+WSO2AM_HOSTNAME="$CARBON_HOST"
+CARBON_HOST="apim.template.org"
+CARBON_MGT_HOSTNAME="apim.template.org"
+REVERSE_PROXY_ENABLED="true"
+
+    # registry.xml
+    # Essa configuracao protege bancos de dados de dev
+    # que nao tem como abrir maximo de conexoes suficiente para lidar com 
+    # multiplos produtos utilizando pool de conexoes de banco de dados
+REGISTRY_IDEXING_FREQUENCY_IN_SECONDS=30 #30 PARA DEV, 3 PARA PROD
+REGISTRY_INDEXING_BATCH_SIZE=5 #5 PARA DEV, 50 PARA PROD
+REGISTRY_INDEXER_POOL_SIZE=5 #5 PARA DEV, 50 PARA PROD
+
+WSO2AM_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2am_db?useSSL=false"
+WSO2AM_DB_USERNAME="wso2"
+WSO2AM_DB_PASSWORD="wso2carbon"
+WSO2AM_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+WSO2AM_STAT_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2am_stats_db?useSSL=false"
+WSO2AM_STAT_DB_USERNAME="wso2"
+WSO2AM_STAT_DB_PASSWORD="wso2carbon"
+WSO2AM_STAT_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+#### PROFILE: API PUBLISHER
+APIPUBLISHER_URL="publisher.template.org"
+APIPUBLISHER_DNS="publisher.template.org"
+APIPUBLISHER_CONTEXT="/publisher"
+APIADMIN_URL="publisher.template.org"
+APIADMIN_CONTEXT="/admin"
+APIM_DNS="publisher.template.org"
+
+#### PROFILE: API STORE
+APISTORE_DNS="store.template.org"
+APISTORE_HOSTNAME="store.template.org"
+APISTORE_URL="store.template.org"
+APISTORE_CONTEXT="/store"
+
+#### PROFILE: GATEWAY
+APIGATEWAY_DNS="gateway.template.org"
+APIGATEWAY_URL="http://gateway.template.org,https://gateway.template.org"
+APIGATEWAY_SERVICES_URL="gateway.template.org"
+
+#### PROFILE: TRAFFIC MANAGER
+RECEIVER_URL_GROUP="{tcp://172.9.9.10:9611}"
+AUTH_URL_GROUP="{ssl://172.9.9.10:9711}"
+TRAFFIC_MANAGER="failover='roundrobin'%26cyclecount='2'%26brokerlist='tcp://172.9.9.10:5672?retries='5'%26connectdelay='50''"
+BROKER_LIST="tcp://172.9.9.10:5672"
+TM_DNS="trafficmanager.template.org"
+
+WSO2_MB_STORE_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2mb_store_db?useSSL=false"
+WSO2_MB_STORE_DB_USERNAME="wso2"
+WSO2_MB_STORE_DB_PASSWORD="wso2carbon"
+WSO2_MB_STORE_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+#### WSO2 API MANAGER ANALYTICS
+AM_ANALYTICS_ENABLED="true"
+AM_ANALYTICS_API_URL="https://am-analytics.template.org:443/"
+AM_ANALYTICS_SERVER_URL="{tcp://172.9.9.11:7611}"
+APIM_ANALYTICS_CARBON_OFFSET="0"
+
+WSO2AM_ANALYTICS_HOSTNAME="am-analytics.template.org"
+WSO2AM_ANALYTICS_PORT="443"
+
+WSO2AM_ANALYTICS_DATA_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2am_data_db?useSSL=false"
+WSO2AM_ANALYTICS_DATA_DB_USERNAME="wso2"
+WSO2AM_ANALYTICS_DATA_DB_PASSWORD="wso2carbon"
+WSO2AM_ANALYTICS_DATA_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+WSO2AM_ANALYTICS_EVENT_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2am_event_db?useSSL=false"
+WSO2AM_ANALYTICS_EVENT_DB_USERNAME="wso2"
+WSO2AM_ANALYTICS_EVENT_DB_PASSWORD="wso2carbon"
+WSO2AM_ANALYTICS_EVENT_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+#### WSO2 IDENTITY SERVER ANALYTICS
+IS_ANALYTICS_ENABLED="true"
+IS_ANALYTICS_API_URL="https://mysql.aws.local:443/"
+IS_ANALYTICS_SERVER_URL="{tcp://172.9.9.12:7611}"
+    
+WSO2IS_ANALYTICS_HOSTNAME="is-analytics.template.org"
+WSO2IS_ANALYTICS_PORT="443"
+
+IS_AS_KM_HOSTNAME="is-analytics.template.org"
+IS_AS_KM_PORT="443"
+
+WSO2IS_STAT_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2is_stats_db?useSSL=false"
+WSO2IS_STAT_DB_USERNAME="wso2"
+WSO2IS_STAT_DB_PASSWORD="wso2carbon"
+WSO2IS_STAT_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+WSO2IS_ANALYTICS_DATA_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2is_data_db?useSSL=false"
+WSO2IS_ANALYTICS_DATA_DB_USERNAME="wso2"
+WSO2IS_ANALYTICS_DATA_DB_PASSWORD="wso2carbon"
+WSO2IS_ANALYTICS_DATA_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+WSO2IS_ANALYTICS_EVENT_DB_JDBC_URL="jdbc:mysql://mysql.aws.local/wso2is_event_db?useSSL=false"
+WSO2IS_ANALYTICS_EVENT_DB_USERNAME="wso2"
+WSO2IS_ANALYTICS_EVENT_DB_PASSWORD="wso2carbon"
+WSO2IS_ANALYTICS_EVENT_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+# METRICS 
+#WSO2_METRICS_DB_JDBC_URL="jdbc:mysql://$JDBC_HOST_PORT/"
+#WSO2_METRICS_DB_USERNAME="wso2"
+#WSO2_METRICS_DB_PASSWORD="wso2carbon"
+#WSO2_METRICS_DB_JDBC_DRIVER_CLASS_NAME="$JDBC_DRIVER_CLASS_NAME"
+
+#### NGINX - SSL CERTIFICATES
+#APIM_SSL_CERTIFICATE="$APIM_DNS.cer"
+#APIM_SSL_KEY="$APIM_DNS.key"
+#GATEWAY_SSL_CERTIFICATE="gateway.$GATEWAY_DNS.cer"
+#GATEWAY_SSL_KEY="gateway.$GATEWAY_DNS.key"
+#APIM_IP_ADDRESS=""
+#GATEWAY_IP_ADDRESS=""
+#IS_AS_KM_SSL_CERTIFICATE="$IS_AS_KM_DNS.cer"
+#IS_AS_KM_KEY="$IS_AS_KM_DNS.key"
