@@ -37,9 +37,9 @@ function cleanup() {
     source $1
 
     echo "apagando arquivos desnecessários para o traffic manager"
-    rm $CARBON_HOME/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
-    rm -rf $CARBON_HOME/repository/deployment/server/jaggeryapps/* 
-    rm -rf $CARBON_HOME/repository/deployment/server/webapps/*
+    rm $CARBON_HOME/repository/deployment/server-original/synapse-configs/default/inbound-endpoints/SecureWebSocketInboundEndpoint.xml
+    rm -rf $CARBON_HOME/repository/deployment/server-original/jaggeryapps/* 
+    rm -rf $CARBON_HOME/repository/deployment/server-original/webapps/*
 }
 
 function postConfig() {
