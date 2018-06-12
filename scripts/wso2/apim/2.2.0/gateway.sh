@@ -10,7 +10,6 @@ function backup() {
     cp $CARBON_HOME/repository/conf/axis2/axis2_client.xml $CARBON_HOME/repository/conf/axis2/axis2_client.xml.$_DATAHORA
     cp $CARBON_HOME/repository/conf/nhttp.properties $CARBON_HOME/repository/conf/nhttp.properties.$_DATAHORA
     cp $CARBON_HOME/repository/conf/passthru-http.properties  $CARBON_HOME/repository/conf/passthru-http.properties.$_DATAHORA
-    mv $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
     
 }
 
