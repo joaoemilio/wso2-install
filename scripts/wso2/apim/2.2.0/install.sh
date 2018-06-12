@@ -28,6 +28,17 @@ function install_apim() {
     setup $1
     cleanup $1
     postConfig $1
+
+    if [ -d $SERVER_FILESYSTEM ]; then
+        echo "DIRETORIO SERVER JÁ EXISTE. CRIANDO BACKUP"
+        mv $SERVER_FILESYSTEM $SERVER_FILESYSTEM.$_DATAHORA
+    fi
+    
+    cp -a $APIM_HOME/repository/deployment/server-original $SERVER_FILESYSTEM
+
+    if [ ! -d $APIM_HOME/repository/deployment/server ]; then
+        echo "Diretorio 'server' nao existe dentro do repository/deployment"
+    fi
 }
 
 
