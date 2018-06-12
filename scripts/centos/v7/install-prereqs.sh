@@ -9,8 +9,14 @@ sudo chown wso2:wso2 wso2
 sudo su - wso2
 cd /opt/wso2 
 mkdir -p install/environments/dev 
+touch install/environments/dev/env-vars.sh
+chmod 755 install/environments/dev/env-vars.sh
 mkdir -p install/environments/prod
+touch install/environments/prod/env-vars.sh
+chmod 755 install/environments/prod/env-vars.sh
 mkdir -p install/environments/stage
+touch install/environments/stage/env-vars.sh
+chmod 755 install/environments/stage/env-vars.sh
 cd install
 git clone https://github.com/joaoemilio/wso2-install.git
 exit
