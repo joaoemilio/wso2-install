@@ -29,8 +29,7 @@ function install_apim() {
     cleanup $1
     postConfig $1
 
-    if [ "$LOG_ROTATION_TYPE" = "" || "$LOG_ROTATION_TYPE" = "size" ]; then
-        echo "$PRODUCT instalado em: $CARBON_HOME"
+    if [ "$LOG_ROTATION_TYPE" = "size" ]; then
         cp -v $CARBON_HOME/repository/conf/log4j.properties $CARBON_HOME/repository/conf/log4j.properties.orig
 
         FILE=$RESOURCES_HOME/$PRODUCT/$VERSION/conf/log4j-$LOG_ROTATION_TYPE-rotation.properties
