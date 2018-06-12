@@ -8,14 +8,16 @@ sudo mkdir wso2
 sudo chown wso2:wso2 wso2
 sudo su - wso2
 cd /opt/wso2 
-mkdir install
+mkdir -p install/environments/dev 
+mkdir -p install/environments/prod
+mkdir -p install/environments/stage
 cd install
 git clone https://github.com/joaoemilio/wso2-install.git
 exit
 cd /opt/
 sudo mkdir java
 cd java
-sudo /opt/wso2/install/wso2-install/install-java.sh 8 tar jdk
+sudo /opt/wso2/install/wso2-install/scripts/install-java.sh 8 tar jdk
 sudo mv ../jdk1.8.0_172 ./
 sudo ln -s /opt/java/jdk1.8.0_172 current
 sudo chown -R wso2:wso2 /opt/java

@@ -66,6 +66,7 @@ function install_is-as-km() {
 
     echo "# descompactando binario de instalacao: $WSO2IS_INSTALL_PATH"
     cd /opt/wso2/
+    ln -s $IS_HOME wso2is 
     unzip -q $WSO2IS_INSTALL_PATH
 
     backup $1

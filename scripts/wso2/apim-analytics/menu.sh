@@ -1,5 +1,5 @@
 #!/bin/bash
-PRODUCT="apim"
+PRODUCT="apim-analytics"
 VERSION="2.2.0"
 _DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 _ENV_VARS_SCRIPT=""

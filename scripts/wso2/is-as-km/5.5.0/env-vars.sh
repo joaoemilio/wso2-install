@@ -2,6 +2,7 @@
 
 CARBON_HOME="/opt/wso2/wso2is"
 APIM_HOME="/opt/wso2/wso2is-km-5.5.0"
+IS_HOME="/opt/wso2/wso2is-km-5.5.0"
 PRODUCT="is-as-km"
 VERSION="5.5.0"
 RESOURCES_HOME="/tmp/resources"
