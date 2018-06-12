@@ -24,8 +24,10 @@ function setup() {
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/axis2/axis2_client.xml $CARBON_HOME/repository/conf/axis2/axis2_client.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/nhttp.properties $CARBON_HOME/repository/conf/nhttp.properties
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/passthru-http.properties  $CARBON_HOME/repository/conf/passthru-http.properties
+    
+    mv $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
     ln -s $SERVER_FILESYSTEM $CARBON_HOME/repository/deployment/server
-
+ 
 }
 
 function cleanup() {

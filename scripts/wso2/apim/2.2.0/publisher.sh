@@ -35,6 +35,8 @@ function setup() {
     cp -v $RESOURCES_HOME/$PRODUCT/$VERSION/publisher/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/publisher/site/conf/
     cp -v $RESOURCES_HOME/$PRODUCT/$VERSION/admin/conf/site.json $CARBON_HOME/repository/deployment/server/jaggeryapps/admin/site/conf/
     cp -v $JDBC_DRIVER_PATH $CARBON_HOME/repository/components/lib/    
+
+    mv $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
     ln -s $SERVER_FILESYSTEM $CARBON_HOME/repository/deployment/server
     
 }
