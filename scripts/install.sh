@@ -1,11 +1,11 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-CUSTOMER_ENV_SCRIPT=$1
+CUSTOMER_ENV=$1
 
 function product_menu() {
     _product=$1
     source $DIR/wso2/$_product/menu.sh 
-    product_main_menu $CUSTOMER_ENV_SCRIPT
+    product_main_menu $CUSTOMER_ENV
 }
 
 read_options(){

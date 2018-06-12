@@ -9,7 +9,7 @@ product_main_menu(){
 		print_help
 		exit 0
 	fi
-	_ENV_VARS_SCRIPT=$1
+	_ENV_VARS_SCRIPT=/opt/wso2/install/environments/$1/env-vars.sh
 	echo "script de variaveis de ambiente do cliente: $_ENV_VARS_SCRIPT" 
 	clear
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
