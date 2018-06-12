@@ -29,6 +29,20 @@ function install_apim() {
     cleanup $1
     postConfig $1
 
+    if [ "$LOG_ROTATION_TYPE" = "" || "$LOG_ROTATION_TYPE" = "size" ]; then
+        echo "$PRODUCT instalado em: $CARBON_HOME"
+        cp -v $CARBON_HOME/repository/conf/log4j.properties $CARBON_HOME/repository/conf/log4j.properties.orig
+
+        FILE=$RESOURCES_HOME/$PRODUCT/$VERSION/conf/log4j-$LOG_ROTATION_TYPE-rotation.properties
+        cp -v $FILE $CARBON_HOME/repository/conf/log4j.properties
+
+        FILE=$CARBON_HOME/repository/conf/log4j.properties
+        if [ "$LOG_ROTATION_TYPE" = "size" ]; then
+            sed -i "s,{{CARBON_LOGFILE_MAXFILESIZE}},$CARBON_LOGFILE_MAXFILESIZE,g" $FILE
+            sed -i "s,{{CARBON_LOGFILE_MAXBACKUPINDEX}},$CARBON_LOGFILE_MAXBACKUPINDEX,g" $FILE
+        fi                
+    fi
+
     if [ -d $SERVER_FILESYSTEM ]; then
         echo "DIRETORIO SERVER JÁ EXISTE. CRIANDO BACKUP"
         mv $SERVER_FILESYSTEM $SERVER_FILESYSTEM.$_DATAHORA
