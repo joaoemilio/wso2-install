@@ -9,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # carregar variaveis de ambiente e functions utilitarias
 source $1
-source $DIR/functions.sh
+source $DIR/../functions.sh
 
 setCarbonHomeByProduct $2
 PRODUCT=$2
