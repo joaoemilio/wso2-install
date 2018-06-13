@@ -50,7 +50,8 @@ function replaceVars( ) {
         for i in "${_VARS[@]}"
         do
 	        #echo "substituir $i em $FILE" 
-            _VALUE="`echo $i`"
+            _VALUE="echo $`$i`"
+            echo $_VALUE
             sed -i "s,{{$i}},$_VALUE,g" $FILE
         done
     done
