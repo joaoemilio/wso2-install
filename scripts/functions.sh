@@ -51,7 +51,7 @@ function replaceVars( ) {
         do
 	        echo "substituir $i em $FILE" >> debug.log
             _VALUE="echo $`$i`"
-            echo $_VALUE
+            echo $_VALUE >> debug.log
             sed -i "s,{{$i}},$_VALUE,g" $FILE
         done
     done
