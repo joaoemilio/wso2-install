@@ -50,7 +50,7 @@ function replaceVars( ) {
         for i in "${_VARS[@]}"
         do
 	        #echo "substituir $i em $FILE" 
-            sed -i "s,{{$i}},$DB_MAX_ACTIVE,g" $FILE
+            sed -i "s,{{$i}},$i,g" $FILE
         done
     done
 }
