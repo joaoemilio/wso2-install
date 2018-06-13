@@ -3,7 +3,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function backup() {
-    echo "backup dos arquivos de configuracao original"
+    echo "INFO: backup dos arquivos de configuracao original"
     cp $CARBON_HOME/repository/conf/carbon.xml $CARBON_HOME/repository/conf/carbon.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/registry.xml $CARBON_HOME/repository/conf/registry.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/user-mgt.xml $CARBON_HOME/repository/conf/user-mgt.xml.orig.$_DATAHORA
@@ -15,7 +15,7 @@ function backup() {
 }
 
 function setup() {
-    echo "substituindo arquivos de configuracao"
+    echo "INFO: substituindo arquivos de configuracao"
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/carbon.xml $CARBON_HOME/repository/conf/
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/registry.xml $CARBON_HOME/repository/conf/registry.xml
     cp $RESOURCES_HOME/$PRODUCT/$VERSION/conf/user-mgt.xml $CARBON_HOME/repository/conf/user-mgt.xml
@@ -28,7 +28,7 @@ function setup() {
 }
 
 function cleanup() {
-    echo "nada para apagar"
+    echo "INFO: nada para apagar"
 }
 
 function postConfig() {
@@ -36,7 +36,7 @@ function postConfig() {
 
     if [ "$2" = "mysql57" ]
     then
-        echo "atualizando scripts mysql-5.7"
+        echo "INFO: atualizando scripts mysql-5.7"
         mv -v $CARBON_HOME/dbscripts/mysql.sql $CARBON_HOME/dbscripts/mysql5.x.sql
         mv -v $CARBON_HOME/dbscripts/mysql5.7.sql $CARBON_HOME/dbscripts/mysql.sql
         mv -v $CARBON_HOME/dbscripts/apimgt/mysql.sql $CARBON_HOME/dbscripts/apimgt/mysql5.x.sql
@@ -46,20 +46,20 @@ function postConfig() {
 
 
 function install_apim-analytics() {
-    echo "configurando variaveis de ambiente padrão para o WSO2 API Manager - Analytics 2.2.0"
+    echo "INFO: configurando variaveis de ambiente padrão para o WSO2 API Manager - Analytics 2.2.0"
     source $DIR/env-vars.sh
 
-    echo "configurando variaveis de ambiente do cliente: $1"
+    echo "DEBUG: configurando variaveis de ambiente do cliente: $1"
     source $1
 
-    echo "substituindo variaveis nos arquivos configuracao template"
+    echo "INFO: substituindo variaveis nos arquivos configuracao template"
     source $WSO2_INSTALL_PATH/scripts/functions.sh
     pre_install $1 $DIR/env-vars.sh
 
-    echo "# removendo instalação anterior"
+    echo "INFO: removendo instalação anterior"
     mv $APIM_HOME $CARBON_HOME.$_DATAHORA
 
-    echo "# descompactando binario de instalacao: $WSO2AM_INSTALL_PATH"
+    echo "INFO: descompactando binario de instalacao: $WSO2AM_INSTALL_PATH"
     cd /opt/wso2/
     ln -s $APIM_HOME wso2analytics
     unzip -q $WSO2AM_INSTALL_PATH

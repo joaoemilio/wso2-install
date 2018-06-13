@@ -11,7 +11,7 @@ product_main_menu(){
 	fi
 
 	_ENV_VARS_SCRIPT=/opt/wso2/install/environments/$1/env-vars.sh
-	echo "script de variaveis de ambiente do cliente: $_ENV_VARS_SCRIPT" 
+	echo "DEBUG: script de variaveis de ambiente do cliente: $_ENV_VARS_SCRIPT" 
 	
 	clear
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
@@ -24,7 +24,7 @@ product_main_menu(){
 
 function cluster2nodes() {
 
-	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
+	echo "DEBUG: carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
 	source $_DIR/$VERSION/install.sh
 
 	install_$PRODUCT $_ENV_VARS_SCRIPT
