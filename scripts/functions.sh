@@ -50,7 +50,7 @@ function replaceVars( ) {
         for i in "${_VARS[@]}"
         do
 	        echo "substituir $i em $FILE" >> /opt/wso2/install/wso2-install/debug.log
-            _VALUE="echo $`echo $i`"
+            _VALUE="${!i}"
             echo "$_VALUE" >> /opt/wso2/install/wso2-install/debug.log
             sed -i "s,{{$i}},$_VALUE,g" $FILE
         done
