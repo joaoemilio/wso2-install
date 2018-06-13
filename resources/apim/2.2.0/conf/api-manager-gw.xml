@@ -234,7 +234,7 @@
 
     <OAuthConfigurations>
         <!-- Remove OAuth headers from outgoing message. -->
-        <!--RemoveOAuthHeadersFromOutMessage>true</RemoveOAuthHeadersFromOutMessage-->
+        <RemoveOAuthHeadersFromOutMessage>false</RemoveOAuthHeadersFromOutMessage>
         <!--Authorization header-->
         <!--AuthorizationHeader>Authorization</AuthorizationHeader-->
         <!-- Scope used for marking Application Tokens. If a token is generated with this scope, they will be treated as Application Access Tokens -->
