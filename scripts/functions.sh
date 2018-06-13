@@ -43,9 +43,12 @@ function replaceVars( ) {
     source $2
 
     cd $1
+    #find ./apim ./apim-analytics ./is-as-km ./nginx ./centos7 ./is-analytics -type f | while read FILE
+    echo "atualizando arquivos template"
+    echo "imprimindo variavel para verificar se foram carregadas: $WSO2AM_DB_JDBC_URL"
     find ./apim ./apim-analytics ./is-as-km ./nginx ./centos7 ./is-analytics -type f | while read FILE
     do
-    echo "atualizando arquivo $FILE"
+    #echo "atualizando arquivo $FILE"
     sed -i "s,{{DB_MAX_ACTIVE}},$DB_MAX_ACTIVE,g" $FILE
     sed -i "s,{{CARBON_HOSTNAME}},$CARBON_HOSTNAME,g" $FILE
     sed -i "s,{{CARBON_HOST}},$CARBON_HOST,g" $FILE
