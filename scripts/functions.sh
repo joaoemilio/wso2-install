@@ -53,7 +53,7 @@ function replaceVars( ) {
     #echo "atualizando arquivo $FILE"
         for i in "${_VARS[@]}"
         do
-	        echo "substituir $i em $FILE" 
+	        #echo "substituir $i em $FILE" 
             sed -i "s,{{$i}},$DB_MAX_ACTIVE,g" $FILE
         done
     done
