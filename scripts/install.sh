@@ -15,6 +15,7 @@ read_options(){
 		1) product_menu "apim" ;;
 		2) product_menu "is-as-km" ;;
 		3) product_menu "apim-analytics" ;;
+		4) product_menu "is-analytics" ;;
 		0) exit 0;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
