@@ -87,11 +87,11 @@ function install_is-analytics() {
         mv $SERVER_FILESYSTEM $SERVER_FILESYSTEM.$_DATAHORA
     fi
     
-    cp -a $APIM_HOME/repository/deployment/server-original $SERVER_FILESYSTEM
+    cp -a $APIM_HOME/repository/deployment/server $SERVER_FILESYSTEM
+    mv $APIM_HOME/repository/deployment/server $APIM_HOME/repository/deployment/server-original 
 
-    if [ ! -d $APIM_HOME/repository/deployment/server ]; then
-        echo "Diretorio 'server' nao existe dentro do repository/deployment"
-    fi
+    cd $APIM_HOME/repository/deployment/
+    ln -s $SERVER_FILESYSTEM server 
     
 }
 
