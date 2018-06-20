@@ -61,8 +61,8 @@ function install_is-analytics() {
 
     echo "INFO: descompactando binario de instalacao: $WSO2AM_INSTALL_PATH"
     cd /opt/wso2/
-    ln -s $APIM_HOME wso2analytics
     unzip -q $WSO2AM_INSTALL_PATH
+    ln -s $APIM_HOME wso2analytics
 
     backup $1
     setup $1

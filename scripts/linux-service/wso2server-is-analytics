@@ -3,9 +3,9 @@
 # description: wso2 server service script
 export JAVA_HOME="/opt/java/current"
  
-startcmd='/opt/wso2/wso2is-analytics/bin/wso2server.sh start > /dev/null &'
-restartcmd='/opt/wso2/wso2is-analytics/bin/wso2server.sh restart > /dev/null &'
-stopcmd='/opt/wso2/wso2is-analytics/bin/wso2server.sh stop > /dev/null &'
+startcmd='/opt/wso2/wso2analytics/bin/wso2server.sh start > /dev/null &'
+restartcmd='/opt/wso2/wso2analytics/bin/wso2server.sh restart > /dev/null &'
+stopcmd='/opt/wso2/wso2analytics/bin/wso2server.sh stop > /dev/null &'
  
 case "$1" in
 start)
