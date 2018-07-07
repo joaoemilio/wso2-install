@@ -4,6 +4,20 @@ VERSION="2.2.0"
 _DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 _ENV_VARS_SCRIPT=""
 
+read_options_one(){
+	local choice
+	read -p " " choice
+	case $choice in
+		1) pattern1 ;;
+		2) echo "pattern 2" ;;
+		3) pattern3 ;;
+		4) echo "pattern 4" ;;
+		5) echo "pattern 5" ;;
+		0) exit 0;;
+		*) echo -e "${RED}Error...${STD}" && sleep 2
+	esac
+}
+
 product_main_menu(){
 	if [ "$1" == "" ]; then
 		print_help
