@@ -24,6 +24,13 @@ product_main_menu(){
 	read_options_one
 }
 
+function pattern1() {
+	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
+	source $_DIR/$VERSION/install.sh
+
+	install_$PRODUCT $_ENV_VARS_SCRIPT "all-in-one";;
+}
+
 function pattern3() {
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
 	echo " Escolha o Product Profile"
@@ -53,7 +60,7 @@ read_options_one(){
 	local choice
 	read -p " " choice
 	case $choice in
-		1) echo "pattern 1" ;;
+		1) pattern1 ;;
 		2) echo "pattern 2" ;;
 		3) pattern3 ;;
 		4) echo "pattern 4" ;;
