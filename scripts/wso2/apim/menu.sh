@@ -22,7 +22,7 @@ function pattern1() {
 	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
 	source $_DIR/$VERSION/install.sh
 
-	install_$PRODUCT $_ENV_VARS_SCRIPT "all-in-one";;
+	install_$PRODUCT $_ENV_VARS_SCRIPT "all-in-one"
 }
 
 function pattern3() {
