@@ -18,26 +18,6 @@ read_options_one(){
 	esac
 }
 
-product_main_menu(){
-	if [ "$1" == "" ]; then
-		print_help
-		exit 0
-	fi
-	_ENV_VARS_SCRIPT=/opt/wso2/install/environments/$1/env-vars.sh
-	echo "script de variaveis de ambiente do cliente: $_ENV_VARS_SCRIPT" 
-	clear
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
-	echo " Escolha o Pattern"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo "[1] Pattern #1 - 2 all-in-one nodes"
-	echo "[2] Pattern #2 - Distributed Gateways and Key Manager"
-	echo "[3] Pattern #3 - Fully Distributed"
-	echo "[4] Pattern #4 - Fully Distributed with Internal Gateways"
-	echo "[5] Pattern #5 - Hybrid (API Cloud +On Premise)"
-	echo "[0] Sair"
-	read_options_one
-}
-
 function pattern1() {
 	echo "carregar script de instalacao do produto escolhido: $_DIR/$VERSION/install.sh"
 	source $_DIR/$VERSION/install.sh
@@ -82,4 +62,24 @@ read_options_one(){
 		0) exit 0;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
+}
+
+product_main_menu(){
+	if [ "$1" == "" ]; then
+		print_help
+		exit 0
+	fi
+	_ENV_VARS_SCRIPT=/opt/wso2/install/environments/$1/env-vars.sh
+	echo "script de variaveis de ambiente do cliente: $_ENV_VARS_SCRIPT" 
+	clear
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"	
+	echo " Escolha o Pattern"
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo "[1] Pattern #1 - 2 all-in-one nodes"
+	echo "[2] Pattern #2 - Distributed Gateways and Key Manager"
+	echo "[3] Pattern #3 - Fully Distributed"
+	echo "[4] Pattern #4 - Fully Distributed with Internal Gateways"
+	echo "[5] Pattern #5 - Hybrid (API Cloud +On Premise)"
+	echo "[0] Sair"
+	read_options_one
 }
