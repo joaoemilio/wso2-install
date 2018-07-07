@@ -13,7 +13,7 @@ function backup() {
     cp $CARBON_HOME/repository/conf/identity/identity.xml $CARBON_HOME/repository/conf/identity/identity.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/identity/embedded-ldap.xml $CARBON_HOME/repository/conf/identity/embedded-ldap.xml.orig.$_DATAHORA
     cp $CARBON_HOME/repository/conf/identity/thrift-authentication.xml $CARBON_HOME/repository/conf/identity/thrift-authentication.xml.orig.$_DATAHORA    
-    mv $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
+    cp $CARBON_HOME/repository/deployment/server $CARBON_HOME/repository/deployment/server-original
 }
 
 function setup() {
@@ -75,6 +75,30 @@ function install_is-as-km() {
     setup $1
     cleanup $1
     postConfig $1
+
+    if [ "$LOG_ROTATION_TYPE" = "size" ]; then
+        cp -v $CARBON_HOME/repository/conf/log4j.properties $CARBON_HOME/repository/conf/log4j.properties.orig
+
+        FILE=$RESOURCES_HOME/$PRODUCT/$VERSION/conf/log4j-$LOG_ROTATION_TYPE-rotation.properties
+        cp -v $FILE $CARBON_HOME/repository/conf/log4j.properties
+
+        FILE=$CARBON_HOME/repository/conf/log4j.properties
+        if [ "$LOG_ROTATION_TYPE" = "size" ]; then
+            sed -i "s,{{CARBON_LOGFILE_MAXFILESIZE}},$CARBON_LOGFILE_MAXFILESIZE,g" $FILE
+            sed -i "s,{{CARBON_LOGFILE_MAXBACKUPINDEX}},$CARBON_LOGFILE_MAXBACKUPINDEX,g" $FILE
+        fi                
+    fi
+
+    if [ -d $SERVER_FILESYSTEM ]; then
+        echo "DIRETORIO SERVER JÁ EXISTE. CRIANDO BACKUP"
+        mv $SERVER_FILESYSTEM $SERVER_FILESYSTEM.$_DATAHORA
+    fi
+    
+    cp -a $CARBON_HOME/repository/deployment/server-original $SERVER_FILESYSTEM
+
+    if [ ! -d $CARBON_HOME/repository/deployment/server ]; then
+        echo "Diretorio 'server' nao existe dentro do repository/deployment"
+    fi    
 }
 
 
