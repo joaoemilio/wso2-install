@@ -49,28 +49,30 @@ fi
 
 
 # set base download location
-#URL="https://www.oracle.com"
-#DOWNLOAD_URL1="${URL}/technetwork/java/javase/downloads/index.html"
-#DOWNLOAD_URL2=$(curl -s $DOWNLOAD_URL1 | egrep -o "\/technetwork\/java/\javase\/downloads\/jdk8-downloads-.*\.html" | head -1)
+URL="https://www.oracle.com"
+DOWNLOAD_URL1="${URL}/technetwork/java/javase/downloads/index.html"
+DOWNLOAD_URL2=$(curl -s $DOWNLOAD_URL1 | egrep -o "\/technetwork\/java/\javase\/downloads\/jdk8-downloads-.*\.html" | head -1)
 
 # check to make sure we got to oracle
-#if [[ -z "$DOWNLOAD_URL2" ]]; then
-#  echo "Could not to oracle - $DOWNLOAD_URL1"
-#  exit 1
-#fi
+if [[ -z "$DOWNLOAD_URL2" ]]; then
+  echo "Could not to oracle - $DOWNLOAD_URL1"
+  exit 1
+fi
 
 # set download url
-#DOWNLOAD_URL3="$(echo ${URL}${DOWNLOAD_URL2}|awk -F\" {'print $1'})"
-#echo "URL3" $DOWNLOAD_URL3
-#DOWNLOAD_URL4=$(curl -s "$DOWNLOAD_URL3" | egrep -o "https\:\/\/download.oracle\.com\/otn-pub\/java\/jdk\/[7-8]u[0-9]+\-(.*)+\/${JAVA_TYPE}-[7-8]u[0-9]+(.*)linux-x64.${EXT}"|tail -n1)
-#echo "URL4" $DOWNLOAD_URL4
+DOWNLOAD_URL3="$(echo ${URL}${DOWNLOAD_URL2}|awk -F\" {'print $1'})"
+echo "URL3" $DOWNLOAD_URL3
+
+DOWNLOAD_URL4=$(curl -s $DOWNLOAD_URL3 | egrep -o "http://download.oracle.com/otn-pub/java/jdk/8u181-b13.*jdk-8u181-linux-x64.tar.gz")
+
+echo $DOWNLOAD_URL4
 # check to make sure url exists
-#if [[ -z "$DOWNLOAD_URL4" ]]; then
-#  echo "Could not get ${JAVA_TYPE} download url - $DOWNLOAD_URL4"
-#  exit 1
-#fi
+if [[ -z "$DOWNLOAD_URL4" ]]; then
+  echo "Could not get ${JAVA_TYPE} download url - $DOWNLOAD_URL4"
+  exit 1
+fi
+
 # set download file name
-DOWNLOAD_URL4="http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz"
 JAVA_INSTALL=$(basename $DOWNLOAD_URL4)
 
 if [[ "$EXT" == "tar" || "$EXT" == "tar.gz" ]]; then
